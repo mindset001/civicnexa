@@ -21,8 +21,18 @@ class Form extends Component {
     othername: '',
     email: '',
     phone: '',
-    courses: [],
-    level: '',
+    nok_relation,
+    nok_name,
+    nok_phone,
+    nok_address,
+    rel_relation,
+    rel_name,
+    rell_relation,
+    rell_name,
+    acct_num,
+    bank_name,
+    acct_name,
+    bvn,
     isErrorFirstName: true,
     isErrorLastName: true,
     isErrorOtherName: true,
@@ -152,6 +162,14 @@ class Form extends Component {
           <Relationships 
             nextStep={this.nextStep}
             prevStep={this.prevStep}
+            nok_name={nok_name}
+            nok_phone={nok_phone}
+            nok_address={nok_addres}
+            nok_relation={nok_relation}
+            rel_name={rel_name}
+            rel_relation={rel_relation}
+            rell_name={rel_name}
+            rell_relation={rel_relation}
           />
         )
       case 3:
@@ -170,10 +188,10 @@ class Form extends Component {
             <Financial
               nextStep={this.nextStep}
               prevStep={this.prevStep}
-              firstname={firstname}
-              lastname={lastname}
-              email={email}
-              phone={phone}
+              bank_name={acct_name}
+              acct_name={acct_name}
+              acct_num={acct_num}
+              bvn={bvn}
               submitData={this.submitData}
             />
           )

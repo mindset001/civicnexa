@@ -16,13 +16,10 @@ class Financial extends Component {
 
     render() {
         const {
-            firstname,
-            lastname,
-            email,
-            phone,
-            coursesChosenSummary,
-            chosenLevel,
-            submitData,
+            acct_num,
+            bank_name,
+            acct_name,
+            bvn,
         } = this.props;
 
         return (
@@ -31,18 +28,17 @@ class Financial extends Component {
                     <Stepper
                         steps={[{ label: 'Personal details' }, { label: 'Relationships' }, { label: 'Health Information' }, { label: 'Financial Information' }]}
 
-                        activeStep={3}
                         styleConfig={{
-                            activeBgColor: '#2b7cff',
+                            activeBgColor: '#924FFF',
                             activeTextColor: '#fff',
                             inactiveBgColor: '#fff',
                             inactiveTextColor: '#2b7cff',
                             completedBgColor: '#fff',
                             completedTextColor: '#2b7cff',
                             size: '3em'
-                        }}
-                        className={'stepper'}
-                        stepClassName={'stepper__step'}
+                          }}
+                          className={'stepper'}
+                          stepClassName={'stepper__step'}
                     />
 
                     <div className=' w-[100%]'>
@@ -52,28 +48,28 @@ class Financial extends Component {
                                 <label htmlFor='phone' className='form-group__label'>
                                     Account Name
                                 </label>
-                                <input type='text' value={phone} name='phone'  className='form-group__input' placeholder='' />
+                                <input type='text' value={acct_name} name='acct_name'  className='form-group__input' placeholder='' />
                             </div>
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
                                    Bank Name
                                 </label>
-                                <input type='text' value={phone} name='phone'  className='form-group__input' placeholder='' />
+                                <input type='text' value={bank_name} name='bank_name'  className='form-group__input' placeholder='' />
                             </div>
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
                                     Account Number
                                 </label>
-                                <input type='number' value={phone} name='phone'  className='form-group__input' placeholder='' />
+                                <input type='number' value={acct_num} name='acct_num'  className='form-group__input' placeholder='' />
                             </div>
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
                                     Bank Verification Number (BVN)
                                 </label>
-                                <input type='number' value={phone} name='phone'  className='form-group__input' placeholder='' />
+                                <input type='number' value={bvn} name='bvn'  className='form-group__input' placeholder='' />
                             </div>
 
                         </form>

@@ -15,13 +15,14 @@ class Relationships extends Component {
 
     render() {
         const {
-            firstname,
-            lastname,
-            email,
-            phone,
-            coursesChosenSummary,
-            chosenLevel,
-            submitData,
+            nok_relation,
+            nok_name,
+            nok_phone,
+            nok_address,
+            rel_relation,
+            rel_name,
+            rell_relation,
+            rell_name,
         } = this.props;
 
         return (
@@ -30,18 +31,17 @@ class Relationships extends Component {
                     <Stepper
                         steps={[{ label: 'Personal details' }, { label: 'Relationships' }, { label: 'Health Information' }, { label: 'Financial Information' }]}
 
-                        activeStep={2}
                         styleConfig={{
-                            activeBgColor: '#2b7cff',
+                            activeBgColor: '#924FFF',
                             activeTextColor: '#fff',
                             inactiveBgColor: '#fff',
                             inactiveTextColor: '#2b7cff',
                             completedBgColor: '#fff',
                             completedTextColor: '#2b7cff',
                             size: '3em'
-                        }}
-                        className={'stepper'}
-                        stepClassName={'stepper__step'}
+                          }}
+                          className={'stepper'}
+                          stepClassName={'stepper__step'}
                     />
 
                     <div className=' w-[100%]'>
@@ -53,25 +53,25 @@ class Relationships extends Component {
                                     <label htmlFor='phone' className='form-group__label'>
                                       Name
                                     </label>
-                                    <input type='text' value={phone} name='phone' className='form-group__input' placeholder='' />
+                                    <input type='text' value={nok_name} name='nok_name' className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Relationship
                                     </label>
-                                    <input type='text' value={phone} name='phone' className='form-group__input' placeholder='' />
+                                    <input type='text' value={nok_relation} name='nok_relation' className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Phone Number
                                     </label>
-                                    <input type='number' value={phone} name='phone' className='form-group__input' placeholder='+224' />
+                                    <input type='number' value={nok_phone} name='phone' className='form-group__input' placeholder='+224' />
                                 </div>
 
                                 <div className='form-group__element'>
-                                    <label htmlFor='phone' className='form-group__label'>
+                                    <label htmlFor='phone' className='form-group__label' value={nok_address}>
                                         Home Address
                                     </label>
                                    <textarea className="border border-1 h-[8rem] w-[62%] p-2"></textarea>
@@ -84,28 +84,28 @@ class Relationships extends Component {
                                     <label htmlFor='phone' className='form-group__label'>
                                         Name
                                     </label>
-                                    <input type='text' value={phone} name='phone' className='form-group__input' placeholder='' />
+                                    <input type='text' value={rel_name} name='rel_name' className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Relationship
                                     </label>
-                                    <input type='text' value={phone} name='phone' className='form-group__input' placeholder='' />
+                                    <input type='text' value={rel_relation} name='rel_relation' className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Name
                                     </label>
-                                    <input type='number' value={phone} name='phone' className='form-group__input' placeholder='' />
+                                    <input type='number' value={rell_name} name='rell_name' className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Relationship
                                     </label>
-                                    <input type='number' value={phone} name='phone' className='form-group__input' placeholder='' />
+                                    <input type='number' value={rell_relation} name='rell_relation' className='form-group__input' placeholder='' />
                                 </div>
 
                             </div>

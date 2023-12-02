@@ -32,7 +32,7 @@ class Health extends Component {
 
             activeStep={2}
             styleConfig={{
-              activeBgColor: '#2b7cff',
+              activeBgColor: '#924FFF',
               activeTextColor: '#fff',
               inactiveBgColor: '#fff',
               inactiveTextColor: '#2b7cff',

@@ -91,7 +91,7 @@ class PersonalDetails extends Component {
               <label htmlFor='nin' className='form-group__label'>
                 National Identification Number (NIN)
               </label>
-              <input type='number' value={othername} name='last name' onChange={handleChange('nin')} onBlur={validateOtherName} className='form-group__input' />
+              <input type='number' value={nin} name='last name' onChange={handleChange('nin')} onBlur={validateOtherName} className='form-group__input' />
               <p className='error'>{isErrorNin && errorMessageNin}</p>
             </div>
 
