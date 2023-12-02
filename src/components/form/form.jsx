@@ -3,69 +3,15 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import PersonalDetails from './personalDetails';
-import CourseDetails from './courseDetails';
 import Health from './summary';
-import Createuser from '../pages/user-details/createuser';
 import Financial from './finance';
 import Relationships from './relations';
 
 //Sample data
 // const navigate = useNavigate();
-const coursesData = [
-  {
-    id: 1,
-    courseName: 'HTML',
-    category: 'Front-end'
-  },
-  {
-    id: 2,
-    courseName: 'CSS',
-    category: 'Front-end'
-  },
-  {
-    id: 3,
-    courseName: 'JavaScript',
-    category: 'Front-end'
-  },
-  {
-    id: 4,
-    courseName: 'React',
-    category: 'Front-end'
-  },
-  {
-    id: 5,
-    courseName: 'Angular',
-    category: 'Front-end'
-  },
-  {
-    id: 6,
-    courseName: 'Vue',
-    category: 'Front-end'
-  },
-  {
-    id: 7,
-    courseName: 'Java',
-    category: 'Back-end'
-  },
-  {
-    id: 8,
-    courseName: 'Python',
-    category: 'Back-end'
-  },
-  {
-    id: 9,
-    courseName: 'PHP',
-    category: 'Back-end'
-  },
-  {
-    id: 10,
-    courseName: 'Express',
-    category: 'Back-end'
-  }       
-];
 
-// const levelsData = ['Beginner', 'Intermediate', 'Advanced'];
-const levelsData  = ['Personal Information', 'Relationships', 'Health Infomation', 'Financial Information'];
+
+
 
 class Form extends Component {
   state = {
@@ -121,20 +67,6 @@ class Form extends Component {
     }
   }
 
-  addLevel = e => {
-    const levelChosen = e.target.value;
-    this.setState({
-      level: levelChosen
-    });
-  };
-
-  addCourse = data => {
-    const id = data.map(v => v.id);
-    this.setState({
-      courses: id
-    })
-  };
-
   validateFirstName = () => {
     if (this.state.firstname.length < 2) {
       this.setState({
@@ -183,8 +115,6 @@ class Form extends Component {
       othername,
       email,
       phone,
-      courses,
-      level,
       isErrorFirstName,
       isErrorLastName,
       isErrorOtherName,
@@ -193,26 +123,7 @@ class Form extends Component {
       errorMessageOtherName
     } = this.state;
 
-    const coursesOptions = coursesData.map(el => ({
-      course: el.courseName,
-      id: el.id,
-      category: el.category
-    }));
 
-    const coursesChosen = coursesData.filter(el => courses.includes(el.id));
-    const coursesChosenSummary = coursesChosen.map(el => (
-      <p key={el.id}>
-        {el.courseName} - {el.category} 
-      </p>
-    ));
-
-    const chosenLevel = level;
-    
-    const levelOptions = levelsData.map((el, index) => (
-      <option key={index} value={el}>
-        {el}
-      </option>
-    ));
     
     switch(step) {
       case 1: 
@@ -241,11 +152,6 @@ class Form extends Component {
           <Relationships 
             nextStep={this.nextStep}
             prevStep={this.prevStep}
-            addCourse={this.addCourse}
-            coursesOptions={coursesOptions}
-            addLevel={this.addLevel}
-            levelOptions={levelOptions}
-            level={level}
           />
         )
       case 3:
@@ -257,9 +163,6 @@ class Form extends Component {
             lastname={lastname}
             email={email}
             phone={phone}
-            coursesChosenSummary={coursesChosenSummary}
-            chosenLevel={chosenLevel}
-            // submitData={this.submitData}
           />
         )
         case 4:
@@ -271,8 +174,6 @@ class Form extends Component {
               lastname={lastname}
               email={email}
               phone={phone}
-              coursesChosenSummary={coursesChosenSummary}
-              chosenLevel={chosenLevel}
               submitData={this.submitData}
             />
           )

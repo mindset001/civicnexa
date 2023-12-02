@@ -77,9 +77,12 @@ class Health extends Component {
                 </div>
               </div>
 
-              <div>
-
-              </div>
+              <div className='form-group__element'>
+              <label htmlFor='phone' className='form-group__label'>
+                Upload Health Related Document
+              </label>
+              <input type='file' value={phone} name='phone' onChange={handleChange('phone')} className='form-group__input' placeholder='+234'/>
+            </div>
 
 
             </form>
