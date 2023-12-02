@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.error{
+    @apply text-[12px] text-[#df0000] absolute lg:right-[28rem] md:right-[15rem] right-[3rem]
+}
