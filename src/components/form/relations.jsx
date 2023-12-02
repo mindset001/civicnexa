@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Stepper } from 'react-form-stepper';
 // import './App.css';
+// import './form.css'
 
 class Relationships extends Component {
     continue = e => {
@@ -32,7 +33,7 @@ class Relationships extends Component {
                 <div>
                     <Stepper
                         steps={[{ label: 'Personal details' }, { label: 'Relationships' }, { label: 'Health Information' }, { label: 'Financial Information' }]}
-
+                        activeStep={1}
                         styleConfig={{
                             activeBgColor: '#924FFF',
                             activeTextColor: '#fff',

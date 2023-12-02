@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Stepper } from 'react-form-stepper';
 // import Financial from './financial';
 // import './App.css';
+import './form.css'
 
 class Financial extends Component {
     continue = e => {
@@ -30,18 +31,18 @@ class Financial extends Component {
                 <div>
                     <Stepper
                         steps={[{ label: 'Personal details' }, { label: 'Relationships' }, { label: 'Health Information' }, { label: 'Financial Information' }]}
-
+                        activeStep={3}
                         styleConfig={{
-                            activeBgColor: '#924FFF',
-                            activeTextColor: '#fff',
-                            inactiveBgColor: '#fff',
-                            inactiveTextColor: '#2b7cff',
-                            completedBgColor: '#fff',
-                            completedTextColor: '#2b7cff',
-                            size: '3em'
-                          }}
-                          className={'stepper'}
-                          stepClassName={'stepper__step'}
+                          activeBgColor: '#924FFF',
+                          activeTextColor: '#fff',
+                          inactiveBgColor: '#fff',
+                          inactiveTextColor: '#2b7cff',
+                          completedBgColor: '#fff',
+                          completedTextColor: '#2b7cff',
+                          size: '3em'
+                        }}
+                        className={'stepper'}
+                        stepClassName={'stepper__step'}
                     />
 
                     <div className=' w-[100%]'>
