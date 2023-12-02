@@ -21,18 +21,18 @@ class Form extends Component {
     othername: '',
     email: '',
     phone: '',
-    nok_relation,
-    nok_name,
-    nok_phone,
-    nok_address,
-    rel_relation,
-    rel_name,
-    rell_relation,
-    rell_name,
-    acct_num,
-    bank_name,
-    acct_name,
-    bvn,
+    // nok_relation,
+    // nok_name,
+    // nok_phone,
+    // nok_address,
+    // rel_relation,
+    // rel_name,
+    // rell_relation,
+    // rell_name,
+    // acct_num,
+    // bank_name,
+    // acct_name,
+    // bvn,
     isErrorFirstName: true,
     isErrorLastName: true,
     isErrorOtherName: true,
@@ -114,7 +114,7 @@ class Form extends Component {
     alert('Data sent');
     // navigate('/success');
     props.history.push("/success");
-    Link
+    
   }
 
   render() {
@@ -125,6 +125,19 @@ class Form extends Component {
       othername,
       email,
       phone,
+      nok_relation,
+    nok_name,
+    nok_phone,
+    nok_address,
+    rel_relation,
+    rel_name,
+    rell_relation,
+    rell_name,
+    acct_num,
+    bank_name,
+    acct_name,
+    bvn,
+    img,
       isErrorFirstName,
       isErrorLastName,
       isErrorOtherName,
@@ -164,12 +177,12 @@ class Form extends Component {
             prevStep={this.prevStep}
             nok_name={nok_name}
             nok_phone={nok_phone}
-            nok_address={nok_addres}
+            nok_address={nok_address}
             nok_relation={nok_relation}
             rel_name={rel_name}
             rel_relation={rel_relation}
-            rell_name={rel_name}
-            rell_relation={rel_relation}
+            rell_name={rell_name}
+            rell_relation={rell_relation}
           />
         )
       case 3:
@@ -180,7 +193,7 @@ class Form extends Component {
             firstname={firstname}
             lastname={lastname}
             email={email}
-            phone={phone}
+            img={img}
           />
         )
         case 4:
@@ -188,7 +201,7 @@ class Form extends Component {
             <Financial
               nextStep={this.nextStep}
               prevStep={this.prevStep}
-              bank_name={acct_name}
+              bank_name={bank_name}
               acct_name={acct_name}
               acct_num={acct_num}
               bvn={bvn}

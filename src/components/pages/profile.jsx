@@ -199,7 +199,7 @@ const ProfilePage = () => {
                         </div>
                       </div>
                       <div className='flex items-center '>
-                      <Link to="https://civicnexa.onrender.com/requestlogin/${data?.email}">
+                      <Link to="https://civicnexa.onrender.com/requestlogin/{data?.email}">
                       <Button classNames='text-white font-medium bg-purple rounded-lg px-[2rem] mr-4'>
                         Make Payment
                       </Button></Link>

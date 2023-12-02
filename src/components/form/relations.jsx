@@ -15,6 +15,7 @@ class Relationships extends Component {
 
     render() {
         const {
+            handleChange,
             nok_relation,
             nok_name,
             nok_phone,
@@ -27,6 +28,7 @@ class Relationships extends Component {
 
         return (
             <div className='form'>
+                <form action="">
                 <div>
                     <Stepper
                         steps={[{ label: 'Personal details' }, { label: 'Relationships' }, { label: 'Health Information' }, { label: 'Financial Information' }]}
@@ -45,7 +47,7 @@ class Relationships extends Component {
                     />
 
                     <div className=' w-[100%]'>
-                        <form className="mt-[1rem] ml-[20%] w-[100%]">
+                        <div className="mt-[1rem] ml-[20%] w-[100%]">
 
                             <div>
                             <p className="text-black font-normal text-[22px] mt-3">Next of Kin</p>
@@ -109,7 +111,7 @@ class Relationships extends Component {
                                 </div>
 
                             </div>
-                        </form>
+                        </div>
 
 
 
@@ -126,6 +128,7 @@ class Relationships extends Component {
 
 
                 </div>
+                </form>
             </div>
         )
     }

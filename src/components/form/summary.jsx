@@ -15,17 +15,13 @@ class Health extends Component {
 
   render() {
     const {
-      firstname,
-      lastname,
-      email,
-      phone,
-      coursesChosenSummary,
-      chosenLevel,
-      submitData,
+      img,
+      // handleChange,
     } = this.props;
 
     return (
       <div className='form'>
+        <form action="">
         <div>
           <Stepper
             steps={[{ label: 'Personal details' }, { label: 'Relationships' }, { label: 'Health Information' }, { label: 'Financial Information' }]}
@@ -45,7 +41,6 @@ class Health extends Component {
           />
 
           <div className='ml-[20%]  w-[60%]'>
-            <form className="mt-[1rem]">
 
               <div className='w-[]'>
                 <label htmlFor="blood_group" className="text-[1.125rem] font-normal mb-[.5rem]">Blood Group</label> <br />
@@ -77,15 +72,15 @@ class Health extends Component {
                 </div>
               </div>
 
-              <div className='form-group__element'>
+              {/* <div className='form-group__element'>
               <label htmlFor='phone' className='form-group__label'>
                 Upload Health Related Document
               </label>
-              <input type='file' value={phone} name='phone' onChange={handleChange('phone')} className='form-group__input' placeholder='+234'/>
-            </div>
+              <input type='file' value={img} name='img' onChange={handleChange('img')} className='form-group__input' placeholder='+234'/>
+            </div> */}
 
 
-            </form>
+           
             <div className='buttons'>
               {/* <button className='buttons__button buttons__button--back' onClick={this.back}>Back</button> */}
               <button
@@ -106,6 +101,7 @@ class Health extends Component {
 
 
         </div>
+        </form>
       </div>
     )
   }

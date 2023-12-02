@@ -16,14 +16,17 @@ class Financial extends Component {
 
     render() {
         const {
+            handleChange,
             acct_num,
             bank_name,
             acct_name,
             bvn,
+            submitData
         } = this.props;
 
         return (
             <div className='form'>
+                <form action="">
                 <div>
                     <Stepper
                         steps={[{ label: 'Personal details' }, { label: 'Relationships' }, { label: 'Health Information' }, { label: 'Financial Information' }]}
@@ -42,7 +45,7 @@ class Financial extends Component {
                     />
 
                     <div className=' w-[100%]'>
-                        <form className="mt-[1rem] ml-[20%] w-[100%]">
+                        <div className="mt-[1rem] ml-[20%] w-[100%]">
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
@@ -71,8 +74,7 @@ class Financial extends Component {
                                 </label>
                                 <input type='number' value={bvn} name='bvn'  className='form-group__input' placeholder='' />
                             </div>
-
-                        </form>
+                        </div>
                        
 
 
@@ -88,6 +90,7 @@ class Financial extends Component {
 
 
                 </div>
+                </form>
             </div>
         )
     }
