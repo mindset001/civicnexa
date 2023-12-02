@@ -14,7 +14,9 @@ class PersonalDetails extends Component {
     const isFirstNameValid = this.props.validateFirstName();
     const isLastNameValid = this.props.validateLastName();
     const isOtherNameValid = this.props.validateOtherName();
-    if (isFirstNameValid && isLastNameValid && isOtherNameValid) {
+    const isPhoneValid = this.props.validatePhone();
+    const isNinValid = this.props.validateNin();
+    if (isFirstNameValid && isLastNameValid && isOtherNameValid && isPhoneValid && isNinValid) {
       this.props.nextStep();
     }
   }
@@ -35,13 +37,18 @@ class PersonalDetails extends Component {
       validateFirstName,
       validateLastName,
       validateOtherName,
+      validateNin,
+      validatePhone,
       isErrorFirstName,
       isErrorLastName,
+      isErrorPhone,
       isErrorNin,
       isErrorOtherName,
       errorMessageFirstName,
       errorMessageOtherName,
-      errorMessageLastName
+      errorMessageLastName,
+      errorMessagePhone,
+      errorMessageNin
     } = this.props;
 
 
@@ -95,7 +102,7 @@ class PersonalDetails extends Component {
               <label htmlFor='nin' className='form-group__label'>
                 National Identification Number (NIN)
               </label>
-              <input type='number' value={nin} name='last name' onChange={handleChange('nin')} onBlur={validateOtherName} className='form-group__input' />
+              <input type='number' value={nin} name='nin' onChange={handleChange('nin')} onBlur={validateNin} className='form-group__input' />
               <p className='error'>{isErrorNin && errorMessageNin}</p>
             </div>
 
@@ -103,8 +110,10 @@ class PersonalDetails extends Component {
               <label htmlFor='phone' className='form-group__label'>
                 Phone Number
               </label>
-              <input type='text' value={phone} name='phone' onChange={handleChange('phone')} className='form-group__input' placeholder='+234' />
+              <input type='text' value={phone} name='phone' onChange={handleChange('phone')} onBlur={validatePhone} className='form-group__input' placeholder='+234' />
+              <p className='error'>{isErrorPhone && errorMessagePhone}</p>
             </div>
+            
             <div className='form-group__element'>
               <label htmlFor='phone' className='form-group__label'>
                 Date of Birth
@@ -236,14 +245,14 @@ class PersonalDetails extends Component {
               <label htmlFor='phone' className='form-group__label'>
                 Home Address
               </label>
-              <textarea type='text' value={address} name='address' onChange={handleChange('address')} className='form-group__input' placeholder='+234'></textarea>
+              <textarea type='text' value={address} name='address' onChange={handleChange('address')} className='form-group__input' placeholder=''></textarea>
             </div>
 
             <div className='form-group__element'>
               <label htmlFor='phone' className='form-group__label'>
                 Upload Picture
               </label>
-              <input type='file' className='form-group__input' placeholder='+234' />
+              <input type='file' className='form-group__input' placeholder='' />
             </div>
 
           </div>

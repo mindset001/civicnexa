@@ -21,6 +21,7 @@ class Form extends Component {
     othername: '',
     email: '',
     phone: '',
+    nin: '',
     // nok_relation,
     // nok_name,
     // nok_phone,
@@ -36,6 +37,8 @@ class Form extends Component {
     isErrorFirstName: true,
     isErrorLastName: true,
     isErrorOtherName: true,
+    isErrorPhone: true,
+    isErrorNin: true,
     errorMessageFirstName: '',
     errorMessageLastName: '',
     errorMessageOtherName: ''
@@ -98,12 +101,32 @@ class Form extends Component {
     }
     return true;
   } 
+  validatePhone = () => {
+    if (this.state.phone.length < 11) {
+      this.setState({
+        isErrorPhone: true,
+        errorMessagePhone: 'Type a correct number'
+      });
+      return false;
+    }
+    return true;
+  } 
+  validateNin = () => {
+    if (this.state.phone.length < 11) {
+      this.setState({
+        isErrorNin: true,
+        errorMessageNin: 'Enter NIN'
+      });
+      return false;
+    }
+    return true;
+  } 
 
   validateOtherName = () => {
     if (this.state.lastname.length < 2) {
       this.setState({
         isErrorOtherName: true,
-        errorMessageOtherName: 'Type your last name (at least 2 characters)'
+        errorMessageOtherName: 'Type your middle name (at least 2 characters)'
       });
       return false;
     }
@@ -125,6 +148,7 @@ class Form extends Component {
       othername,
       email,
       phone,
+      nin,
       nok_relation,
     nok_name,
     nok_phone,
@@ -141,9 +165,13 @@ class Form extends Component {
       isErrorFirstName,
       isErrorLastName,
       isErrorOtherName,
+      isErrorPhone,
+      isErrorNin,
       errorMessageFirstName,
       errorMessageLastName,
-      errorMessageOtherName
+      errorMessageOtherName,
+      errorMessagePhone,
+      errorMessageNin
     } = this.state;
 
 
@@ -159,15 +187,22 @@ class Form extends Component {
             othername={othername}
             email={email}
             phone={phone}
+            nin={nin}
             validateFirstName={this.validateFirstName}
             validateLastName={this.validateLastName}
             validateOtherName={this.validateOtherName}
+            validatePhone={this.validatePhone}
+            validateNin={this.validateNin}
             isErrorFirstName={isErrorFirstName}
             isErrorLastName={isErrorLastName}
             isErrorOtherName={isErrorOtherName}
+            isErrorPhone={isErrorPhone}
+            isErrorNin={isErrorNin}
             errorMessageFirstName={errorMessageFirstName}
             errorMessageLastName={errorMessageLastName}
             errorMessageOtherName={errorMessageOtherName}
+            errorMessagePhone={errorMessagePhone}
+            errorMessageNin={errorMessageNin}
           />
         )
       case 2:
