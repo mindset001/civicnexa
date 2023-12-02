@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const api = 'https://epay-profiling.onrender.com'
-
+const api = 'https://civicnexa.onrender.com'
+// /auth/users/
 const userToken = localStorage.getItem('userToken')
   ? localStorage.getItem('userToken') : null
 

@@ -3,9 +3,9 @@ import { Stepper } from 'react-form-stepper';
 import './form.css'
 
 import Select from "react-select";
-import NaijaStates from 'naija-state-local-government';
+// import NaijaStates from 'naija-state-local-government';
 
-console.log(NaijaStates.all());
+// console.log(NaijaStates.all());
 class PersonalDetails extends Component {
 
 
@@ -15,8 +15,8 @@ class PersonalDetails extends Component {
     const isLastNameValid = this.props.validateLastName();
     const isOtherNameValid = this.props.validateOtherName();
     const isPhoneValid = this.props.validatePhone();
-    const isNinValid = this.props.validateNin();
-    if (isFirstNameValid && isLastNameValid && isOtherNameValid && isPhoneValid && isNinValid) {
+    // const isNinValid = this.props.validateNin();
+    if (isFirstNameValid && isLastNameValid && isOtherNameValid && isPhoneValid) {
       this.props.nextStep();
     }
   }
@@ -25,30 +25,32 @@ class PersonalDetails extends Component {
 
   render() {
     const {
-      firstname,
-      lastname,
+      first_name,
+      last_name,
       othername,
       nin,
       phone,
       occupation,
       address,
       dob,
+      state_of_origin,
+      state_of_resident,
       handleChange,
       validateFirstName,
       validateLastName,
       validateOtherName,
-      validateNin,
+      // validateNin,
       validatePhone,
       isErrorFirstName,
       isErrorLastName,
       isErrorPhone,
-      isErrorNin,
+      // isErrorNin,
       isErrorOtherName,
       errorMessageFirstName,
       errorMessageOtherName,
       errorMessageLastName,
       errorMessagePhone,
-      errorMessageNin
+      // errorMessageNin
     } = this.props;
 
 
@@ -79,7 +81,7 @@ class PersonalDetails extends Component {
               <label htmlFor='first name' className='form-group__label'>
                 First name
               </label>
-              <input type='text' value={firstname} name='first name' onChange={handleChange('firstname')} onBlur={validateFirstName} className='form-group__input' />
+              <input type='text' value={first_name} name='first name' onChange={handleChange('first_name')} onBlur={validateFirstName} className='form-group__input' />
               <p className='error'>{isErrorFirstName && errorMessageFirstName}</p>
             </div>
 
@@ -87,7 +89,7 @@ class PersonalDetails extends Component {
               <label htmlFor='last name' className='form-group__label'>
                 Last name
               </label>
-              <input type='text' value={lastname} name='last name' onChange={handleChange('lastname')} onBlur={validateLastName} className='form-group__input' />
+              <input type='text' value={last_name} name='last name' onChange={handleChange('last_name')} onBlur={validateLastName} className='form-group__input' />
               <p className='error'>{isErrorLastName && errorMessageLastName}</p>
             </div>
             <div className='form-group__element'>
@@ -102,8 +104,8 @@ class PersonalDetails extends Component {
               <label htmlFor='nin' className='form-group__label'>
                 National Identification Number (NIN)
               </label>
-              <input type='number' value={nin} name='nin' onChange={handleChange('nin')} onBlur={validateNin} className='form-group__input' />
-              <p className='error'>{isErrorNin && errorMessageNin}</p>
+              <input type='number' value={nin} name='nin' onChange={handleChange('nin')}  className='form-group__input' />
+              {/* <p className='error'>{isErrorNin && errorMessageNin}</p> */}
             </div>
 
             <div className='form-group__element'>
@@ -113,7 +115,7 @@ class PersonalDetails extends Component {
               <input type='text' value={phone} name='phone' onChange={handleChange('phone')} onBlur={validatePhone} className='form-group__input' placeholder='+234' />
               <p className='error'>{isErrorPhone && errorMessagePhone}</p>
             </div>
-            
+
             <div className='form-group__element'>
               <label htmlFor='phone' className='form-group__label'>
                 Date of Birth
@@ -150,7 +152,7 @@ class PersonalDetails extends Component {
 
             <div>
               <label htmlFor="state_of_origin" className="text-[1.125rem] font-normal mb-[.5rem]">State of Origin</label> <br />
-              <select className='form-group__input capitalize'>
+              <select className='form-group__input capitalize' value={state_of_origin} name='state_of_origin' onChange={handleChange('state_of_origin')}>
                 <option value="">--Select State--</option>
                 <option>ABUJA FCT</option>
                 <option>ABIA</option>
@@ -192,8 +194,8 @@ class PersonalDetails extends Component {
               </select>
             </div>
             <div>
-              <label htmlFor="state_of_origin" className="text-[1.125rem] font-normal mb-[.5rem]">State of Residence</label> <br />
-              <select className='form-group__input capitalize'>
+              <label htmlFor="state_of_resident" className="text-[1.125rem] font-normal mb-[.5rem]">State of Residence</label> <br />
+              <select className='form-group__input capitalize' value={state_of_resident} name='state_of_resident' onChange={handleChange('state_of_resident')}>
                 <option value="">--Select State--</option>
                 <option>ABUJA FCT</option>
                 <option>ABIA</option>

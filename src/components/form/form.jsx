@@ -14,26 +14,42 @@ import Relationships from './relations';
 
 
 class Form extends Component {
+
+//   componentDidMount() {
+//     const requestOptions = {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({ title: 'React POST Request Example' })
+//     };
+//     fetch('https://civicnexa.onrender.com/swagger/profiling', requestOptions)
+//         .then(response => response.json())
+//         .then(data => this.setState({ postId: data.id }));
+// }
+
   state = {
     step: 1,
-    firstname: '',
-    lastname: '',
+    first_name: '',
+    last_name: '',
     othername: '',
+    dob: '',
+    addr: '',
+    state_of_resident: '',
+    state_of_origin: '',
     email: '',
     phone: '',
     nin: '',
-    // nok_relation,
-    // nok_name,
-    // nok_phone,
-    // nok_address,
-    // rel_relation,
-    // rel_name,
-    // rell_relation,
-    // rell_name,
-    // acct_num,
-    // bank_name,
-    // acct_name,
-    // bvn,
+    nok_relation: '',
+    nok_name: '',
+    nok_phone: '',
+    nok_address: '',
+    rel_relation: '',
+    rel_name: '',
+    rell_relation: '',
+    rell_name: '',
+    acct_num: '',
+    bank_name: '',
+    acct_name: '',
+    bvn: '',
     isErrorFirstName: true,
     isErrorLastName: true,
     isErrorOtherName: true,
@@ -63,16 +79,16 @@ class Form extends Component {
       [input]: e.target.value
     })
 
-    if (input === 'firstname') {
-      if (this.state.firstname.length >= 1) {
+    if (input === 'first_name') {
+      if (this.state.first_name.length >= 1) {
         this.setState({
           isErrorFirstName: false
         })
       }
     }
 
-    else if (input === 'lastname') {
-      if (this.state.lastname.length >= 1) {
+    else if (input === 'last_name') {
+      if (this.state.last_name.length >= 1) {
         this.setState({
           isErrorLastName: false
         })
@@ -81,7 +97,7 @@ class Form extends Component {
   }
 
   validateFirstName = () => {
-    if (this.state.firstname.length < 2) {
+    if (this.state.first_name.length < 2) {
       this.setState({
         isErrorFirstName: true,
         errorMessageFirstName: 'Type your first name (at least 2 characters)'
@@ -92,7 +108,7 @@ class Form extends Component {
   }
 
   validateLastName = () => {
-    if (this.state.lastname.length < 2) {
+    if (this.state.last_name.length < 2) {
       this.setState({
         isErrorLastName: true,
         errorMessageLastName: 'Type your last name (at least 2 characters)'
@@ -111,19 +127,19 @@ class Form extends Component {
     }
     return true;
   } 
-  validateNin = () => {
-    if (this.state.phone.length < 11) {
-      this.setState({
-        isErrorNin: true,
-        errorMessageNin: 'Enter NIN'
-      });
-      return false;
-    }
-    return true;
-  } 
+  // validateNin = () => {
+  //   if (this.state.phone.length < 11) {
+  //     this.setState({
+  //       isErrorNin: true,
+  //       errorMessageNin: 'Enter NIN'
+  //     });
+  //     return false;
+  //   }
+  //   return true;
+  // } 
 
   validateOtherName = () => {
-    if (this.state.lastname.length < 2) {
+    if (this.state.last_name.length < 2) {
       this.setState({
         isErrorOtherName: true,
         errorMessageOtherName: 'Type your middle name (at least 2 characters)'
@@ -132,9 +148,22 @@ class Form extends Component {
     }
     return true;
   } 
+
+
   submitData = e => {
     e.preventDefault();
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'React POST Request Example' })
+  };
+  fetch('https://civicnexa.onrender.com/swagger/profiling', requestOptions)
+      .then(response => response.json())
+      .then(data => this.setState({ postId: data.id }));
     alert('Data sent');
+
+    console.log(first_name);
     // navigate('/success');
     props.history.push("/success");
     
@@ -143,10 +172,14 @@ class Form extends Component {
   render() {
     const {
       step,
-      firstname,
-      lastname,
+      first_name,
+      last_name,
       othername,
       email,
+      state_of_origin,
+      state_of_resident,
+      dob,
+      address,
       phone,
       nin,
       nok_relation,
@@ -182,17 +215,21 @@ class Form extends Component {
           <PersonalDetails 
             nextStep={this.nextStep}
             handleChange={this.handleChange}
-            firstname={firstname}
-            lastname={lastname}
+            first_name={first_name}
+            last_name={last_name}
             othername={othername}
+            state_of_resident={state_of_resident}
             email={email}
             phone={phone}
             nin={nin}
+            dob={dob}
+            state_of_origin={state_of_origin}
+            address={address}
             validateFirstName={this.validateFirstName}
             validateLastName={this.validateLastName}
             validateOtherName={this.validateOtherName}
             validatePhone={this.validatePhone}
-            validateNin={this.validateNin}
+            // validateNin={this.validateNin}
             isErrorFirstName={isErrorFirstName}
             isErrorLastName={isErrorLastName}
             isErrorOtherName={isErrorOtherName}
@@ -223,8 +260,8 @@ class Form extends Component {
         return (
           <Health 
             nextStep={this.nextStep}
-            firstname={firstname}
-            lastname={lastname}
+            // first_name={first_name}
+            // last_name={last_name}
             email={email}
             img={img}
           />

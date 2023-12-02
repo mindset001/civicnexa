@@ -16,7 +16,7 @@ class Relationships extends Component {
 
     render() {
         const {
-            handleChange,
+            // handleChange,
             nok_relation,
             nok_name,
             nok_phone,
@@ -118,11 +118,11 @@ class Relationships extends Component {
 
 
                         <div className=''>
-                            {/* <button className='buttons__button buttons__button--back' onClick={this.back}>Back</button> */}
-                            <button
-                                className='rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[62%] ' type='submit' onClick={this.continue}>
-                                Next</button>
-                        </div>
+              {/* <button className='buttons__button buttons__button--back' onClick={this.back}>Back</button> */}
+              <button
+                className='rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[60%] ' type='submit' onClick={this.continue}>
+                 Next</button>
+            </div>
                     </div>
 
 
