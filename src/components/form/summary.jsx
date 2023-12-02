@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Stepper } from 'react-form-stepper';
 // import './App.css';
-// import './form.css'
+import './form.css'
+
+
 class Health extends Component {
   continue = e => {
     e.preventDefault();
@@ -40,9 +42,9 @@ class Health extends Component {
             stepClassName={'stepper__step'}
           />
 
-          <div className='ml-[20%]  w-[60%]'>
+          <div className='form-group'>
 
-              <div className='w-[]'>
+              <div className='w-[60%]'>
                 <label htmlFor="blood_group" className="text-[1.125rem] font-normal mb-[.5rem]">Blood Group</label> <br />
                   <select name="" id="" className='form-group__input w-[100%]' required>
                     <option value="">
@@ -51,7 +53,7 @@ class Health extends Component {
                   </select>
               </div>
 
-              <div className="flex justify-between  mt-6">
+              <div className="flex justify-between  mt-6 w-[60%]">
                 <label htmlFor="gender" name='gender'>
                   Genotype
                 </label>
@@ -81,10 +83,10 @@ class Health extends Component {
 
 
            
-            <div className='buttons'>
+            <div className=''>
               {/* <button className='buttons__button buttons__button--back' onClick={this.back}>Back</button> */}
               <button
-                className='rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[100%] ' type='submit' onClick={this.continue}>
+                className='rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[60%] ' type='submit' onClick={this.continue}>
                  Next</button>
             </div>
 

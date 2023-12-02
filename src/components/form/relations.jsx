@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Stepper } from 'react-form-stepper';
 // import './App.css';
-// import './form.css'
+import './form.css'
 
 class Relationships extends Component {
     continue = e => {
@@ -47,8 +47,8 @@ class Relationships extends Component {
                           stepClassName={'stepper__step'}
                     />
 
-                    <div className=' w-[100%]'>
-                        <div className="mt-[1rem] ml-[20%] w-[100%]">
+                    <div className='form-group'>
+                        <div className="mt-[1rem] w-[100%]">
 
                             <div>
                             <p className="text-black font-normal text-[22px] mt-3">Next of Kin</p>
@@ -117,7 +117,7 @@ class Relationships extends Component {
 
 
 
-                        <div className='buttons'>
+                        <div className=''>
                             {/* <button className='buttons__button buttons__button--back' onClick={this.back}>Back</button> */}
                             <button
                                 className='rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[62%] ' type='submit' onClick={this.continue}>

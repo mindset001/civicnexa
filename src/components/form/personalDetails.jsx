@@ -167,7 +167,7 @@ class PersonalDetails extends Component {
 
           <div style={{ textAlign: 'center' }}>
             <button 
-            className='rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[60%] ' onClick={this.continue}>Next</button>
+            className='rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[62%] ' onClick={this.continue}>Next</button>
           </div>
 
         </form>

@@ -45,8 +45,8 @@ class Financial extends Component {
                         stepClassName={'stepper__step'}
                     />
 
-                    <div className=' w-[100%]'>
-                        <div className="mt-[1rem] ml-[20%] w-[100%]">
+                    <div className='form-group'>
+                        <div className="mt-[1rem] w-[100%]">
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
@@ -80,9 +80,9 @@ class Financial extends Component {
 
 
 
-                        <div className='buttons'>
+                        <div className=''>
               <button
-                className=' rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[60%] ml-[2%]' type='submit' onClick={submitData}>
+                className=' rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[62%]' type='submit' onClick={submitData}>
                   Submit</button>
             </div>
                     </div>

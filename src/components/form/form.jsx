@@ -174,7 +174,6 @@ class Form extends Component {
         return (
           <Relationships 
             nextStep={this.nextStep}
-            prevStep={this.prevStep}
             nok_name={nok_name}
             nok_phone={nok_phone}
             nok_address={nok_address}
@@ -189,7 +188,6 @@ class Form extends Component {
         return (
           <Health 
             nextStep={this.nextStep}
-            prevStep={this.prevStep}
             firstname={firstname}
             lastname={lastname}
             email={email}
@@ -200,7 +198,6 @@ class Form extends Component {
           return (
             <Financial
               nextStep={this.nextStep}
-              prevStep={this.prevStep}
               bank_name={bank_name}
               acct_name={acct_name}
               acct_num={acct_num}
