@@ -57,7 +57,7 @@ const ProfilePage = () => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+        Authorization: `JWT ${localStorage.getItem('userToken')}`,
       },
     };
     if (localStorage.getItem('userToken') === null) {
