@@ -175,8 +175,10 @@ class Form extends Component {
   };
   fetch('https://civicnexa.onrender.com/profiling', requestOptions)
       .then(response => response.json())
-      .then(data => this.setState({ postId: data.id })
-      
+      .then(data => {
+        this.setState({ postId: data.id })
+        console.log(data)
+      }
       );
 
     alert('Data sent');
