@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 const ProfilePage = () => {
-  const api = "https://epay-profiling.onrender.com";
+  const api = "https://civicnexa.onrender.com";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [data, setData] = useState(null);
@@ -69,7 +69,7 @@ const ProfilePage = () => {
       axios.get(`${api}/api/profile/`, config).then(
         (response) => {
           if (response.data.state_code === undefined) {
-            navigate('/createuser')
+            navigate('/stateprofile')
           }
 
           else{
