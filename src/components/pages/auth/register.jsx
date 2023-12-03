@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
   username: Yup.string().required('your username is Required'),
   email: Yup.string().email('Invalid email address').required('Email is Required'),
   password: Yup.string().required('Password is Required').min(6, 'Password is too short - should be 6 chars minimum.'),
-  confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords do not match').required('Confirm Password is Required'),
+  re_password: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords do not match').required('Confirm Password is Required'),
 })
 
 const Register = () => {
@@ -25,7 +25,7 @@ const Register = () => {
       username: '',
       email: '',
       password: '',
-      confirmPassword: '',
+      re_password: '',
     }
 
     // useEffect(() => {
@@ -37,7 +37,9 @@ const Register = () => {
       dispatch(registerUser(values))
       console.log(values)
       console.log(error)
-      navigate('/stateprofile')
+      if (!error){
+        navigate('/success')
+      }
     }
   
   return(
@@ -60,9 +62,9 @@ const Register = () => {
                       render={({ field }) => (
                       <InputComponent
                           id='username'
-                          label="Full name"
+                          label="Username"
                           type="text"
-                          placeholder="Enter your name"
+                          placeholder="Enter your username"
                           classNames={`placeholder:text-[.8rem] mb-[.5rem] placeholder:leading-5 font-normal placeholder:gray-400 placeholder:text-grey pl-[1rem]`}
                           {...field}
                       />
@@ -102,14 +104,14 @@ const Register = () => {
                       )}
                   />
                     {/* <span className="material-symbols-outlined">visibility</span> */}
-                  <ErrorMessage name="confirmPassword" component="div" className='error'/>
+                  <ErrorMessage name="re_password" component="div" className='error'/>
                   <Field
-                      id="confirmPassword"
-                      name="confirmPassword"
+                      id="re_password"
+                      name="re_password"
                       className="text-[1.125rem] font-normal mb-[.5rem]"
                       render={({ field }) => (
                       <InputComponent
-                          id='confirmPassword'
+                          id='re_password'
                           label="confirm password"
                           type="password"
                           placeholder="confirm your password"

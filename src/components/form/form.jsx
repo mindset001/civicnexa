@@ -32,7 +32,7 @@ class Form extends Component {
     last_name: '',
     othername: '',
     dob: '',
-    addr: '',
+    address: '',
     state_of_resident: '',
     state_of_origin: '',
     email: '',
@@ -75,6 +75,8 @@ class Form extends Component {
   }
 
   handleChange = input => e => {
+    console.log('event: ', e, '\ninput: ', input);
+    console.log(this.state)
     this.setState({
       [input]: e.target.value
     })
@@ -150,17 +152,33 @@ class Form extends Component {
   } 
 
 
+
+
   submitData = e => {
+
+  const bodydata =  {
+      "first_name": this.state.first_name,
+      "last_name": this.state.last_name,
+      "dob": this.state.dob,
+      "state_of_origin": this.state.state_of_origin,
+      "state_of_resident": this.state.state_of_resident,
+      "address": this.state.address,
+      "phone": this.state.phone
+    }
+
     e.preventDefault();
 
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: 'React POST Request Example' })
+      body: JSON.stringify(bodydata)
   };
-  fetch('https://civicnexa.onrender.com/swagger/profiling', requestOptions)
+  fetch('https://civicnexa.onrender.com/profiling', requestOptions)
       .then(response => response.json())
-      .then(data => this.setState({ postId: data.id }));
+      .then(data => this.setState({ postId: data.id })
+      
+      );
+
     alert('Data sent');
 
     console.log(first_name);

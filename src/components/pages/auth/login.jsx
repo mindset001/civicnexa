@@ -57,9 +57,9 @@ const Login = () => {
                       render={({ field }) => (
                       <InputComponent
                           id='username'
-                          label="Full name"
+                          label="Username"
                           type="text"
-                          placeholder="Enter your name"
+                          placeholder="Enter your username"
                           classNames={`placeholder:text-[.8rem] mb-[.5rem] placeholder:leading-5 font-normal placeholder:gray-400 placeholder:text-grey pl-[1rem]`}
                           {...field}
                       />
