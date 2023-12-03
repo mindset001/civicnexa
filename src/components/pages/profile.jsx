@@ -66,7 +66,7 @@ const ProfilePage = () => {
     // console.log('token',localStorage.getItem('userToken'))
     try {
       setLoading(true);
-      axios.get(`${api}/api/profile/`, config).then(
+      axios.get(`${api}/profiling/`, config).then(
         (response) => {
           if (response.data.state_code === undefined) {
             navigate('/stateprofile')
