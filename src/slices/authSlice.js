@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// const api = 'http://127.0.0.1:8000'
 const api = 'https://civicnexa.onrender.com'
 // /auth/users/
 
@@ -19,7 +20,7 @@ export const loginUser = createAsyncThunk(
         }
       }
       const { data } = await axios.post(`${api}/auth/jwt/create`, credentials, config);
-      localStorage.setItem('userToken', `JWT ${data.access}`)
+      localStorage.setItem('userToken', data.access)
       console.log("response", data.access)
       return data;
     } catch (error) {

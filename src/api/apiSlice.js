@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const api = "https://civicnexa.onrender.com/";
+// export const api = "https://127.0.0.1:8000/";
 
 export const profileApi = createApi({
   reducerPath: "ProfileApi",

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 const ProfilePage = () => {
   const api = "https://civicnexa.onrender.com";
+  // const api = "http://127.0.0.1:8000";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [data, setData] = useState(null);
@@ -59,6 +60,7 @@ const ProfilePage = () => {
         'Content-Type': 'application/json',
         Authorization: `JWT ${localStorage.getItem('userToken')}`,
       },
+      referrerPolicy: 'origin',
     };
     if (localStorage.getItem('userToken') === null) {
       navigate('/')
