@@ -92,12 +92,12 @@ const ProfilePage = () => {
     }
   }, [token, api, navigate])
 
-   const logout = () => { 
+//    const logout = () => { 
 
-    history.push('/');
+//     history.push('/');
    
 
-};
+// };
 
   
 // useEffect(() => {
@@ -218,7 +218,7 @@ const ProfilePage = () => {
                       </Button></Link>
                       <button className='text-[#d10000] text-[1rem] font-normal leading-tight flex items-center gap-[.5rem]'>
                         <span className="material-symbols-outlined">logout</span>
-                        <span className='capitalize' onClick={logout} >Sign Out</span>
+                        <span className='capitalize'  > <Link to='/'>Sign Out</Link></span>
                       </button>
                       </div>
                     </div>
