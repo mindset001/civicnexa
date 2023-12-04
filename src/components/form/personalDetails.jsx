@@ -257,6 +257,16 @@ class PersonalDetails extends Component {
               <input type='file' className='form-group__input' placeholder='' />
             </div>
 
+
+             <div className='form-group__element'>
+              <label htmlFor='phone' className='form-group__label'>
+                Upload Biometrics
+              </label>
+           
+            </div>
+
+            
+
           </div>
 
           <div style={{ textAlign: 'center' }}>
