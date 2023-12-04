@@ -47,7 +47,7 @@ const Relationship = () => {
 
 
     const handleSubmit = async (values) => {
-        const api = "https://epay-profiling.onrender.com/";
+        const api = "https://civicnexa.onrender.com/";
         const config = {
             headers: {
                 'Content-Type': 'application/json',

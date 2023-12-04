@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const api = "https://epay-profiling.onrender.com/";
+export const api = "https://civicnexa.onrender.com/";
 
 export const profileApi = createApi({
   reducerPath: "ProfileApi",
@@ -18,13 +18,13 @@ export const profileApi = createApi({
   endpoints: (builder) => ({
     getProfile: builder.query({
       query: () => ({
-        url: "api/profile/",
+        url: "profiling/",
         method: "GET",
       }),
     }),
     createUser: builder.mutation({
       query: (body) => ({
-        url: "api/profile/",
+        url: "profiling/",
         method: "POST",
         body: { body },
       }),
