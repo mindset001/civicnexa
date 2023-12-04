@@ -1,6 +1,6 @@
 import React, { Component, } from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import PersonalDetails from './personalDetails';
 import Health from './summary';
@@ -183,7 +183,7 @@ class Form extends Component {
         
         alert('Data sent');
         // eslint-disable-next-line react/prop-types
-        this.props.history.push("/profile");
+        this.redirectToProfile();
       });
 
     // console.log(first_name);
@@ -191,6 +191,11 @@ class Form extends Component {
     // props.history.push("/success");
     
   }
+
+  redirectToProfile = () => {
+    const history = useHistory();
+    history.push('/profile'); // Change '/profile' to the actual path of your profile page
+  };
 
   render() {
     const {
