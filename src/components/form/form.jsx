@@ -296,7 +296,7 @@ class Form extends Component {
         case 4:
           return (
             <Financial
-              nextStep={this.nextStep}
+{/*               nextStep={this.nextStep} */}
               bank_name={bank_name}
               acct_name={acct_name}
               acct_num={acct_num}
