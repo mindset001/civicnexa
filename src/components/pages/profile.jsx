@@ -92,7 +92,15 @@ const ProfilePage = () => {
     }
   }, [token, api, navigate])
 
+  const logout = () => { 
 
+    localStorage.removeItem("userToken"); 
+    navigate('/login')
+    // setIsLoggedin(false); 
+
+};
+
+  
   const [maritalStatus, setMaritalStatus] = useState('');
   const [inputValues, setInputValues] = useState({
     singleInput1: '',
@@ -207,7 +215,7 @@ const ProfilePage = () => {
                       </Button></Link>
                       <button className='text-[#d10000] text-[1rem] font-normal leading-tight flex items-center gap-[.5rem]'>
                         <span className="material-symbols-outlined">logout</span>
-                        <span className='capitalize'>sign out</span>
+                        <span className='capitalize' onClick={logout}>sign out</span>
                       </button>
                       </div>
                     </div>
