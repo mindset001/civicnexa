@@ -360,7 +360,7 @@ const ProfilePage = () => {
                                   <label className="flex items-center gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Relationship</span>
                                       <input type="text" name='lastname' placeholder="Doe"
-                                        value={data?.next_of_kin.relationship}
+{/*                                         value={data?.next_of_kin.relationship} */}
                                         onChange={handleFormChange}
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -369,7 +369,7 @@ const ProfilePage = () => {
                                   <label className="flex items-center gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Phone Number</span>
                                       <input type="number" name='othername' placeholder="Oka"
-                                        value={data?.next_of_kin.phone}
+{/*                                         value={data?.next_of_kin.phone} */}
                                         onChange={handleFormChange}
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -378,7 +378,7 @@ const ProfilePage = () => {
                                   <label className="flex gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Home Address</span>
                                       <textarea type="text" name='nin' placeholder="1223444"
-                                        value={data?.next_of_kin.address}
+{/*                                         value={data?.next_of_kin.address} */}
                                         onChange={handleFormChange}
                                         required className="mt-1 h-[100px] w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -389,7 +389,7 @@ const ProfilePage = () => {
                                   <label className="flex items-center gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Name</span>
                                       <input type="text" name='occupation' placeholder="tola"
-                                        value={data?.occupation}
+{/*                                         value={data?.occupation} */}
                                         onChange={handleFormChange}
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -418,7 +418,7 @@ const ProfilePage = () => {
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                     <span className="text-[1rem] font-normal w-[30%]">Account Name</span>
                                     <input type="text" placeholder="First Bank" name='bank'
-                                      value={data?.bank.bank_name}
+{/*                                       value={data?.bank.bank_name} */}
                                       onChange={handleFormChange}
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -427,7 +427,7 @@ const ProfilePage = () => {
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                     <span className="text-[1rem] font-normal w-[30%]">Bank Name</span>
                                     <input type="text" placeholder="John Doe" name='account_name'
-                                      value={data?.bank.account_name}
+{/*                                       value={data?.bank.account_name} */}
                                       onChange={handleFormChange}
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -436,7 +436,7 @@ const ProfilePage = () => {
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                     <span className="text-[1rem] font-normal w-[30%]">Account Number</span>
                                     <input type="number" placeholder="**********" name='account_number' 
-                                      value={data?.bank.account_number}
+{/*                                       value={data?.bank.account_number} */}
                                       onChange={handleFormChange}
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -445,7 +445,7 @@ const ProfilePage = () => {
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                   <span className="text-[1rem] font-normal w-[30%]">BVN</span>
                                   <input type="number" placeholder="**********" name='bvn'
-                                    value={data?.bank.bvn}
+{/*                                     value={data?.bank.bvn} */}
                                     onChange={handleFormChange}
                                     required className="mt-1 block w-full px-3 py-2 bg-white 
                                     border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -457,7 +457,7 @@ const ProfilePage = () => {
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                     <span className="block text-sm font-medium text-slate-700">Blood Group</span>
                                     <input type="text" placeholder="Micheal" name='occupation'
-                                      value={data?.bloodgroup}
+{/*                                       value={data?.bloodgroup} */}
                                       onChange={handleFormChange}
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -466,7 +466,7 @@ const ProfilePage = () => {
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                     <span className="block text-sm font-medium text-slate-700">Health Image</span>
                                     <input type="file" name='health_image'
-                                      value={data?.health_image}
+{/*                                       value={data?.health_image} */}
                                       onChange={handleFormChange}
                                       required className="mt-1
                                     "/>
@@ -480,7 +480,7 @@ const ProfilePage = () => {
                                     <span className="text-start">upload File</span>
                                     <div className='mt-1 border-[1px] border-[#D5D5D5] mx-auto w-[500px] h-[200px]'>
                                       <input type="file" name='security_image'
-                                        value={data?.security_image}
+{/*                                         value={data?.security_image} */}
                                         onChange={handleFormChange}
                                         required className="my-[5rem] ml-[7rem]
                                       "/>
