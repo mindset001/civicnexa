@@ -3,12 +3,12 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import Select from "react-select";
 import Button from '../button';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
 const ProfilePage = () => {
-   const history = useHistory();
+   // const history = useHistory();
   const api = "https://civicnexa.onrender.com";
   // const api = "http://127.0.0.1:8000";
   const [loading, setLoading] = useState(false);
@@ -93,12 +93,12 @@ const ProfilePage = () => {
     }
   }, [token, api, navigate])
 
-   const logout = () => { 
-      setData(false)
-    history.push('/');
+//    const logout = () => { 
+//       setData(false)
+//     history.push('/');
    
 
-};
+// };
 
   
 // useEffect(() => {
