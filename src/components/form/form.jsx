@@ -170,7 +170,9 @@ class Form extends Component {
 
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' ,
+      Authorization: `JWT ${localStorage.getItem('userToken')}`,
+      },
       body: JSON.stringify(bodydata)
   };
   fetch('https://civicnexa.onrender.com/profiling/', requestOptions)
@@ -181,11 +183,12 @@ class Form extends Component {
       }
       );
 
-    alert('Data sent');
+      alert('Data sent');
+      props.history.push("/profile");
 
-    console.log(first_name);
+    // console.log(first_name);
     // navigate('/success');
-    props.history.push("/success");
+    // props.history.push("/success");
     
   }
 
