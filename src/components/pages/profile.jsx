@@ -92,15 +92,19 @@ const ProfilePage = () => {
     }
   }, [token, api, navigate])
 
-  const logout = () => { 
+   const logout = () => { 
 
-    localStorage.removeItem("userToken"); 
-    navigate('/')
+   localStorage.removeItem("userToken"); 
+    // navigate('/')
     // setIsLoggedin(false); 
 
 };
 
   
+// useEffect(() => {
+
+
+// }, [])
   const [maritalStatus, setMaritalStatus] = useState('');
   const [inputValues, setInputValues] = useState({
     singleInput1: '',
