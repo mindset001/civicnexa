@@ -69,7 +69,7 @@ const ProfilePage = () => {
       axios.get(`${api}/profiling/`, config).then(
         (response) => {
           if (response.data.state_code === undefined) {
-            navigate('/createuser')
+            navigate('/stateprofile')
           }
 
           else{
