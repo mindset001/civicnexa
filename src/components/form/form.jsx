@@ -173,7 +173,7 @@ class Form extends Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(bodydata)
   };
-  fetch('https://civicnexa.onrender.com/profiling', requestOptions)
+  fetch('https://civicnexa.onrender.com/profiling/', requestOptions)
       .then(response => response.json())
       .then(data => {
         this.setState({ postId: data.id })
