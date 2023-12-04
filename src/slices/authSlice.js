@@ -19,7 +19,7 @@ export const loginUser = createAsyncThunk(
         }
       }
       const { data } = await axios.post(`${api}/auth/jwt/create`, credentials, config);
-      localStorage.setItem('userToken', `${data.access}`)
+      localStorage.setItem('userToken', `JWT ${data.access}`)
       console.log("response", data.access)
       return data;
     } catch (error) {
