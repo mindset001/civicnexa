@@ -95,9 +95,7 @@ const ProfilePage = () => {
    const logout = () => { 
 
    localStorage.removeItem("userToken"); 
-      setIsLoggedin(false); 
-     setProfile(false)
-    navigate('/')
+      window.location.href = '/';
    
 
 };
