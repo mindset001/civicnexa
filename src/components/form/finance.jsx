@@ -82,10 +82,10 @@ class Financial extends Component {
 
 
                         <div className=''>
-              <Link to='/'> <button
+               <button
                 className=' rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[62%]' type='submit' onClick={submitData}>
                Submit </button>
-              </Link> 
+            
             </div>
                     </div>
 
