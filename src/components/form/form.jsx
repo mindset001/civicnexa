@@ -184,7 +184,7 @@ class Form extends Component {
       );
 
       alert('Data sent');
-      props.history.push("/profile");
+      this.props.history.push("/profile");
 
     // console.log(first_name);
     // navigate('/success');
