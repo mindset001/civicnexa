@@ -15,16 +15,7 @@ import Relationships from './relations';
 
 class Form extends Component {
 
-//   componentDidMount() {
-//     const requestOptions = {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify({ title: 'React POST Request Example' })
-//     };
-//     fetch('https://civicnexa.onrender.com/swagger/profiling', requestOptions)
-//         .then(response => response.json())
-//         .then(data => this.setState({ postId: data.id }));
-// }
+
 
   state = {
     step: 1,
@@ -129,16 +120,7 @@ class Form extends Component {
     }
     return true;
   } 
-  // validateNin = () => {
-  //   if (this.state.phone.length < 11) {
-  //     this.setState({
-  //       isErrorNin: true,
-  //       errorMessageNin: 'Enter NIN'
-  //     });
-  //     return false;
-  //   }
-  //   return true;
-  // } 
+
 
   validateOtherName = () => {
     if (this.state.last_name.length < 2) {
@@ -181,13 +163,10 @@ class Form extends Component {
         this.setState({ postId: data.id })
         console.log(data)
         
-        alert('Data sent');
-        // eslint-disable-next-line react/prop-types
-        // this.redirectToProfile();
+        // alert('Data sent');
+       
       });
-    // navigate('/success');
-    // eslint-disable-next-line react/prop-types
-    // this.props.history.push("/success");
+   
     
   }
 
