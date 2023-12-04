@@ -187,7 +187,7 @@ class Form extends Component {
       });
     // navigate('/success');
     // eslint-disable-next-line react/prop-types
-    this.props.history.push("/success");
+    // this.props.history.push("/success");
     
   }
 
