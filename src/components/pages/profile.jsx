@@ -94,7 +94,7 @@ const ProfilePage = () => {
 
    const logout = () => { 
 
-    history.push('/login');
+    history.push('/');
    
 
 };
