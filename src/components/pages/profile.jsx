@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import Select from "react-select";
 import Button from '../button';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 
@@ -94,8 +94,7 @@ const ProfilePage = () => {
 
    const logout = () => { 
 
-   localStorage.removeItem("userToken"); 
-      window.location.href = '/';
+    history.push('/login');
    
 
 };
