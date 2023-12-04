@@ -180,11 +180,11 @@ class Form extends Component {
       .then(data => {
         this.setState({ postId: data.id })
         console.log(data)
-      }
-      );
-
-      alert('Data sent');
-      this.props.history.push("/profile");
+        
+        alert('Data sent');
+        // eslint-disable-next-line react/prop-types
+        this.props.history.push("/profile");
+      });
 
     // console.log(first_name);
     // navigate('/success');
