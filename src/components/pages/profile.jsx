@@ -94,7 +94,7 @@ const ProfilePage = () => {
   }, [token, api, navigate])
 
    const logout = () => { 
-
+      setData(false)
     history.push('/');
    
 
@@ -219,7 +219,7 @@ const ProfilePage = () => {
                       </Button></Link>
                       <button className='text-[#d10000] text-[1rem] font-normal leading-tight flex items-center gap-[.5rem]'>
                         <span className="material-symbols-outlined">logout</span>
-                        <span className='capitalize' onclick={logout} > <Link to='/'>Sign Out</Link></span>
+                        <span className='capitalize' onclick={logout} > Sign Out</span>
                       </button>
                       </div>
                     </div>
