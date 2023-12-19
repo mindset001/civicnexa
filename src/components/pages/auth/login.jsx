@@ -19,7 +19,6 @@ const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { loading, user, error } = useSelector((state) => state.auth)
-  console.log(useSelector(state => state.auth))
 
     const initialValues = {
       username: '',

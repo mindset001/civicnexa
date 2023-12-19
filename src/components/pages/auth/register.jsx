@@ -35,9 +35,9 @@ const Register = () => {
     const handleSubmit = (values) => {
       values.email = values.email.toLowerCase()
       dispatch(registerUser(values))
-      console.log(values)
+      // console.log(values)
       console.log(error)
-      if (!error && success){
+      if (success){
         navigate('/success')
       }
     }
