@@ -10,6 +10,7 @@ import { StyledEngineProvider } from "@mui/material"
 import Button from "./components/button"
 import Form from "./components/form/form"
 import Test from "./components/pages/user-details/test"
+import LoadingScreen from "./components/loader"
 
 const Login = lazy(() => import("./components/pages/auth/login"))
 const Register = lazy(() => import("./components/pages/auth/register"))
@@ -26,7 +27,7 @@ function App() {
         <Route path="/test" element={<Test/>} />
         <Route path="/form" element={<Form/>} />
         <Route path="/register" element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingScreen />}>
             <Register />
           </Suspense>}
         />
@@ -41,7 +42,7 @@ function App() {
           </Suspense>}
         /> */}
         <Route path="/" element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingScreen />}>
             <Login />
           </Suspense>}
         />

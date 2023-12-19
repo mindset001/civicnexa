@@ -7,6 +7,7 @@ import { loginUser } from "../../../slices/authSlice"
 import InputComponent from "../../input";
 import Button from "../../button";
 import '../../../App.css'
+import LoadingScreen from "../../loader";
 
 
 const validationSchema = Yup.object().shape({
