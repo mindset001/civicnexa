@@ -74,6 +74,7 @@ const Login = () => {
                         className="text-[1.125rem] font-normal mb-[.5rem]"
                         render={({ field }) => (
                         <InputComponent
+                          isVisibility={true}
                             id='password'
                             label="Password"
                             type="password"

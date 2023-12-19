@@ -37,7 +37,7 @@ const Register = () => {
       dispatch(registerUser(values))
       console.log(values)
       console.log(error)
-      if (!error){
+      if (!error && success){
         navigate('/success')
       }
     }
@@ -93,14 +93,15 @@ const Register = () => {
                       name="password"
                       className="text-[1.125rem] font-normal mb-[.5rem]"
                       render={({ field }) => (
-                      <InputComponent
-                          id='password'
-                          label="Password"
-                          type="password"
-                          placeholder="Enter your password"
-                          classNames={`placeholder:text-[.8rem] mb-[.5rem] placeholder:leading-5 font-normal placeholder:gray-400 placeholder:text-grey pl-[1rem]`}
-                          {...field}
-                      />
+                          <InputComponent
+                            isVisibility={true}
+                            id='password'
+                            label="Password"
+                            type="password"
+                            placeholder="Enter your password"
+                            classNames={`w-full inline-block placeholder:text-[.8rem] mb-[.5rem] placeholder:leading-5 font-normal placeholder:gray-400 placeholder:text-grey pl-[1rem]`}
+                            {...field}
+                          />
                       )}
                   />
                     {/* <span className="material-symbols-outlined">visibility</span> */}
@@ -111,12 +112,13 @@ const Register = () => {
                       className="text-[1.125rem] font-normal mb-[.5rem]"
                       render={({ field }) => (
                       <InputComponent
-                          id='re_password'
-                          label="confirm password"
-                          type="password"
-                          placeholder="confirm your password"
-                          classNames={`placeholder:text-[.8rem] mb-[.5rem] placeholder:leading-5 font-normal placeholder:gray-400 placeholder:text-grey pl-[1rem]`}
-                          {...field}
+                        isVisibility={true}
+                        id='re_password'
+                        label="confirm password"
+                        type="password"
+                        placeholder="confirm your password"
+                        classNames={`placeholder:text-[.8rem] mb-[.5rem] placeholder:leading-5 font-normal placeholder:gray-400 placeholder:text-grey pl-[1rem]`}
+                        {...field}
                       />
                       )}
                   />
