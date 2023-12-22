@@ -21,14 +21,11 @@ export const loginUser = createAsyncThunk(
       }
       const { data } = await axios.post(`${api}/auth/jwt/create`, credentials, config);
       localStorage.setItem('userToken', data.access)
-      console.log("response", data.access)
+      // console.log("response", data.access)
       return data;
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return thunkAPI.rejectWithValue(error.response.data.message)
-      } else {
-        return thunkAPI.rejectWithValue(error.message)
-      }
+      // console.log(error.response.data.detail)
+      return thunkAPI.rejectWithValue(error.response.data.detail)
     }
   }
 )
@@ -46,11 +43,7 @@ export const registerUser = createAsyncThunk(
       const data = response.data
       return data
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        return thunkAPI.rejectWithValue(error.response.data.message)
-      } else {
-        return thunkAPI.rejectWithValue(error.message)
-      }
+      return thunkAPI.rejectWithValue(error.response.data.detail)
     }
   }
 )

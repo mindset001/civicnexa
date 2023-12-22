@@ -7,6 +7,7 @@ import { loginUser } from "../../../slices/authSlice"
 import InputComponent from "../../input";
 import Button from "../../button";
 import '../../../App.css'
+import LoadingScreen from "../../loader";
 
 
 const validationSchema = Yup.object().shape({
@@ -19,7 +20,6 @@ const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { loading, user, error } = useSelector((state) => state.auth)
-  console.log(useSelector(state => state.auth))
 
     const initialValues = {
       username: '',
@@ -74,6 +74,7 @@ const Login = () => {
                         className="text-[1.125rem] font-normal mb-[.5rem]"
                         render={({ field }) => (
                         <InputComponent
+                          isVisibility={true}
                             id='password'
                             label="Password"
                             type="password"
