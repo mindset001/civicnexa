@@ -1,6 +1,7 @@
 import React, { Component, } from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
 // import 
 
 import PersonalDetails from './personalDetails';
@@ -67,8 +68,8 @@ class Form extends Component {
   }
 
   handleChange = input => e => {
-    console.log('event: ', e, '\ninput: ', input);
-    console.log(this.state)
+    // console.log('event: ', e, '\ninput: ', input);
+    // console.log(this.state)
     this.setState({
       [input]: e.target.value
     })
@@ -140,14 +141,28 @@ class Form extends Component {
   submitData = e => {
 
   const bodydata =  {
-      "first_name": this.state.first_name,
-      "last_name": this.state.last_name,
-      "dob": this.state.dob,
-      "state_of_origin": this.state.state_of_origin,
-      "state_of_resident": this.state.state_of_resident,
-      "address": this.state.address,
-      "phone": this.state.phone
-    }
+    "first_name": this.state.first_name,
+    "last_name": this.state.last_name,
+    "dob": this.state.dob,
+    "state_of_origin": this.state.state_of_origin,
+    "state_of_resident": this.state.state_of_resident,
+    "address": this.state.address,
+    "phone": this.state.phone,
+    "nok_relation": this.state.nok_relation,
+    "nok_name": this.state.nok_name,
+    "nok_phone": this.state.nok_phone,
+    "nok_address": this.state.nok_address,
+    "rel_relation": this.state.rel_relation,
+    "rel_name": this.state.rel_name,
+    "rell_relation": this.state.rell_relation,
+    "rell_name": this.state.rell_name,
+    "acct_num": this.state.acct_num,
+    "bank_name": this.state.bank_name,
+    "acct_name": this.state.acct_name,
+    "bvn": this.state.bvn,
+  }
+
+    console.log('body >>>>>>>>>>>>>', bodydata)
 
     e.preventDefault();
 
@@ -158,6 +173,7 @@ class Form extends Component {
       },
       body: JSON.stringify(bodydata)
   };
+  // https://civicnexa.onrender.com/profiling/
   fetch('https://civicnexa.onrender.com/profiling/', requestOptions)
       .then(response => response.json())
       .then(data => {
@@ -254,6 +270,7 @@ class Form extends Component {
       case 2:
         return (
           <Relationships 
+            handleChange={this.handleChange}
             nextStep={this.nextStep}
             nok_name={nok_name}
             nok_phone={nok_phone}
@@ -268,6 +285,7 @@ class Form extends Component {
       case 3:
         return (
           <Health 
+            handleChange={this.handleChange}
             nextStep={this.nextStep}
             // first_name={first_name}
             // last_name={last_name}
@@ -278,6 +296,7 @@ class Form extends Component {
         case 4:
           return (
             <Financial
+              handleChange={this.handleChange}
               nextStep={this.nextStep}
               bank_name={bank_name}
               acct_name={acct_name}

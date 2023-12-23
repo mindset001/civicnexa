@@ -1,111 +1,168 @@
 import React, { Component } from 'react';
 import { Stepper } from 'react-form-stepper';
 // import './App.css';
-import './form.css'
-
+import './form.css';
 
 class Health extends Component {
-  continue = e => {
+  continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
-  }
+  };
 
-  back = e => {
+  back = (e) => {
     e.preventDefault();
     this.props.prevStep();
-  }
+  };
+
+  handleBloodGroupChange = (e) => {
+    // Handle the change in blood group
+    const selectedBloodGroup = e.target.value;
+    // Update the state or call a function to handle the change
+  };
+
+  handleGenotypeChange = (e) => {
+    // Handle the change in genotype
+    const selectedGenotype = e.target.value;
+    // Update the state or call a function to handle the change
+  };
+
+  handleFileUpload = (e) => {
+    // Handle the file upload
+    const uploadedFile = e.target.files[0];
+    // Update the state or call a function to handle the file upload
+  };
 
   render() {
     const {
+      blood_group,
+      genotype,
       img,
-      // handleChange,
+      handleChange,
     } = this.props;
 
     return (
       <div className='form'>
-        <form action="">
-        <div>
-          <Stepper
-            steps={[{ label: 'Personal details' }, { label: 'Relationships' }, { label: 'Health Information' }, { label: 'Financial Information' }]}
+        <form action=''>
+          <div>
+            <Stepper
+              steps={[
+                { label: 'Personal details' },
+                { label: 'Relationships' },
+                { label: 'Health Information' },
+                { label: 'Financial Information' },
+              ]}
+              activeStep={2}
+              styleConfig={{
+                activeBgColor: '#924FFF',
+                activeTextColor: '#fff',
+                inactiveBgColor: '#fff',
+                inactiveTextColor: '#2b7cff',
+                completedBgColor: '#fff',
+                completedTextColor: '#2b7cff',
+                size: '3em',
+              }}
+              className={'stepper'}
+              stepClassName={'stepper__step'}
+            />
 
-            activeStep={2}
-            styleConfig={{
-              activeBgColor: '#924FFF',
-              activeTextColor: '#fff',
-              inactiveBgColor: '#fff',
-              inactiveTextColor: '#2b7cff',
-              completedBgColor: '#fff',
-              completedTextColor: '#2b7cff',
-              size: '3em'
-            }}
-            className={'stepper'}
-            stepClassName={'stepper__step'}
-          />
-
-          <div className='form-group'>
-
+            <div className='form-group'>
               <div className='w-[60%]'>
-                <label htmlFor="blood_group" className="text-[1.125rem] font-normal mb-[.5rem]">Blood Group</label> <br />
-                  <select name="" id="" className='form-group__input w-[100%]' required>
-                    <option value="">
-                      --Select Blood Group--
-                    </option>
-                  </select>
+                <label
+                  htmlFor='blood_group'
+                  className='text-[1.125rem] font-normal mb-[.5rem]'>
+                  Blood Group
+                </label>{' '}
+                <br />
+                <select
+                  name='blood_group'
+                  id=''
+                  className='form-group__input w-[100%]'
+                  required
+                  onChange={this.handleBloodGroupChange}>
+                  <option value=''>--Select Blood Group--</option>
+                  {/* Add other options based on your requirements */}
+                </select>
               </div>
 
-              <div className="flex justify-between  mt-6 w-[60%]">
-                <label htmlFor="gender" name='gender'>
+              <div className='flex justify-between  mt-6 w-[60%]'>
+                <label htmlFor='genotype' name='genotype'>
                   Genotype
                 </label>
                 <div>
-                  <input type="radio" name="gender" /> AA
+                  <input
+                    type='radio'
+                    name='genotype'
+                    value='AA'
+                    onChange={this.handleGenotypeChange}
+                  />{' '}
+                  AA
                 </div>
                 <div>
-                  <input type="radio" name="gender" /> AC
+                  <input
+                    type='radio'
+                    name='genotype'
+                    value='AC'
+                    onChange={this.handleGenotypeChange}
+                  />{' '}
+                  AC
                 </div>
                 <div>
-                  <input type="radio" name="gender" /> AS
+                  <input
+                    type='radio'
+                    name='genotype'
+                    value='AS'
+                    onChange={this.handleGenotypeChange}
+                  />{' '}
+                  AS
                 </div>
                 <div>
-                  <input type="radio" name="gender" /> SC
+                  <input
+                    type='radio'
+                    name='genotype'
+                    value='SC'
+                    onChange={this.handleGenotypeChange}
+                  />{' '}
+                  SC
                 </div>
                 <div>
-                  <input type="radio" name="gender" /> SS
+                  <input
+                    type='radio'
+                    name='genotype'
+                    value='SS'
+                    onChange={this.handleGenotypeChange}
+                  />{' '}
+                  SS
                 </div>
               </div>
 
               <div className='form-group__element'>
-              <label htmlFor='phone' className='form-group__label'>
-                Upload Health Related Document
-              </label>
-              <input type='file' name='img' className='form-group__input' placeholder='+234'/>
+                <label
+                  htmlFor='img'
+                  className='form-group__label'>
+                  Upload Health Related Document
+                </label>
+                <input
+                  type='file'
+                  name='img'
+                  className='form-group__input'
+                  placeholder=''
+                  onChange={this.handleFileUpload}
+                />
+              </div>
+
+              <div className=''>
+                <button
+                  className='rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[60%] '
+                  type='submit'
+                  onClick={this.continue}>
+                  Next
+                </button>
+              </div>
             </div>
-
-
-           
-            <div className=''>
-              {/* <button className='buttons__button buttons__button--back' onClick={this.back}>Back</button> */}
-              <button
-                className='rounded-lg bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[60%] ' type='submit' onClick={this.continue}>
-                 Next</button>
-            </div>
-
-
-
-            {/* <div className='buttons'>
-              <button
-                className='bg-[#924FFF] hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-[100%] ' type='submit' onClick={submitData}>
-                  Submit</button>
-            </div> */}
           </div>
-
-
-
-
-        </div>
         </form>
       </div>
-    )
+    );
   }
 }
 
