@@ -16,7 +16,7 @@ class Relationships extends Component {
 
     render() {
         const {
-            // handleChange,
+            handleChange,
             nok_relation,
             nok_name,
             nok_phone,
@@ -56,28 +56,32 @@ class Relationships extends Component {
                                     <label htmlFor='phone' className='form-group__label'>
                                       Name
                                     </label>
-                                    <input type='text' value={nok_name} name='nok_name' className='form-group__input' placeholder='' />
+                                    <input type='text' value={nok_name} name='nok_name' onChange={handleChange('nok_name')} className='form-group__input' placeholder='nawa' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Relationship
                                     </label>
-                                    <input type='text' value={nok_relation} name='nok_relation' className='form-group__input' placeholder='' />
+                                    <input type='text' value={nok_relation} name='nok_relation' onChange={handleChange('nok_relation')} className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Phone Number
                                     </label>
-                                    <input type='number' value={nok_phone} name='phone' className='form-group__input' placeholder='+224' />
+                                    <input type='number' value={nok_phone} name='phone' onChange={handleChange('nok_phone')} className='form-group__input' placeholder='+224' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label' value={nok_address}>
                                         Home Address
                                     </label>
-                                   <textarea className="border border-1 h-[8rem] w-[62%] p-2"></textarea>
+                                   <textarea 
+                                        className="border border-1 h-[8rem] w-[62%] p-2"
+                                        name="nok_address"
+                                        onChange={handleChange('nok_address')}
+                                   ></textarea>
                                 </div>
 
                             </div>
@@ -87,28 +91,28 @@ class Relationships extends Component {
                                     <label htmlFor='phone' className='form-group__label'>
                                         Name
                                     </label>
-                                    <input type='text' value={rel_name} name='rel_name' className='form-group__input' placeholder='' />
+                                    <input type='text' value={rel_name} name='rel_name' onChange={handleChange('rel_name')} className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Relationship
                                     </label>
-                                    <input type='text' value={rel_relation} name='rel_relation' className='form-group__input' placeholder='' />
+                                    <input type='text' value={rel_relation} name='rel_relation' onChange={handleChange('rel_relation')} className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Name
                                     </label>
-                                    <input type='number' value={rell_name} name='rell_name' className='form-group__input' placeholder='' />
+                                    <input type='text' value={rell_name} name='rell_name' onChange={handleChange('rell_name')} className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Relationship
                                     </label>
-                                    <input type='number' value={rell_relation} name='rell_relation' className='form-group__input' placeholder='' />
+                                    <input type='text' value={rell_relation} name='rell_relation' onChange={handleChange('rell_relation')} className='form-group__input' placeholder='' />
                                 </div>
 
                             </div>

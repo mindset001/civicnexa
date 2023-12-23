@@ -7,7 +7,6 @@ import { loginUser } from "../../../slices/authSlice"
 import InputComponent from "../../input";
 import Button from "../../button";
 import '../../../App.css'
-import LoadingScreen from "../../loader";
 
 
 const validationSchema = Yup.object().shape({
@@ -74,7 +73,7 @@ const Login = () => {
                         className="text-[1.125rem] font-normal mb-[.5rem]"
                         render={({ field }) => (
                         <InputComponent
-                          isVisibility={true}
+                            isVisibility={true}
                             id='password'
                             label="Password"
                             type="password"
@@ -99,7 +98,7 @@ const Login = () => {
                   <Button type='submit' 
                     disabled={loading} 
                     classNames={`bg-purple hover:bg-[#7C43D9] text-[1rem] leading-9 lg:text-[1.5rem] mt-[3rem] font-medium text-white w-full`}>
-                    {loading ? 'Loading...' : 'Login'}
+                      {loading ? 'Loading...' : 'Login'}
                   </Button>
                   </Form>
                 </Formik>

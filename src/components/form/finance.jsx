@@ -53,28 +53,28 @@ class Financial extends Component {
                                 <label htmlFor='phone' className='form-group__label'>
                                     Account Name
                                 </label>
-                                <input type='text' value={acct_name} name='acct_name'  className='form-group__input' placeholder='' />
+                                <input type='text' value={acct_name} name='acct_name' onChange={handleChange('acct_name')} className='form-group__input' placeholder='' />
                             </div>
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
                                    Bank Name
                                 </label>
-                                <input type='text' value={bank_name} name='bank_name'  className='form-group__input' placeholder='' />
+                                <input type='text' value={bank_name} name='bank_name' onChange={handleChange('bank_name')}  className='form-group__input' placeholder='' />
                             </div>
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
                                     Account Number
                                 </label>
-                                <input type='number' value={acct_num} name='acct_num'  className='form-group__input' placeholder='' />
+                                <input type='number' value={acct_num} name='acct_num' onChange={handleChange('acct_num')}  className='form-group__input' placeholder='' />
                             </div>
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
                                     Bank Verification Number (BVN)
                                 </label>
-                                <input type='number' value={bvn} name='bvn'  className='form-group__input' placeholder='' />
+                                <input type='number' value={bvn} name='bvn' onChange={handleChange('bvn')} className='form-group__input' placeholder='' />
                             </div>
                         </div>
                        
