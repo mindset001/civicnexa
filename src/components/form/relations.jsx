@@ -15,12 +15,13 @@ class Relationships extends Component {
     }
 
     render() {
+        // console.log('Relationships States:',this.props)
         const {
             handleChange,
-            nok_relation,
-            nok_name,
-            nok_phone,
-            nok_address,
+            nextRelationship,
+            nextName,
+            nextPhone,
+            nextAddress,
             rel_relation,
             rel_name,
             rell_relation,
@@ -53,34 +54,36 @@ class Relationships extends Component {
                             <div>
                             <p className="text-black font-normal text-[22px] mt-3">Next of Kin</p>
                                 <div className='form-group__element'>
-                                    <label htmlFor='phone' className='form-group__label'>
+                                    <label htmlFor='name' className='form-group__label'>
                                       Name
                                     </label>
-                                    <input type='text' value={nok_name} name='nok_name' onChange={handleChange('nok_name')} className='form-group__input' placeholder='nawa' />
+                                    <input type='text' value={nextName} name='nextName' onChange={handleChange('nextName')} className='form-group__input' placeholder='' />
+                                    <input type='text' value={nextName} name='nextName' onChange={handleChange('nextName')} className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
-                                    <label htmlFor='phone' className='form-group__label'>
+                                    <label htmlFor='relationship' className='form-group__label'>
                                         Relationship
                                     </label>
-                                    <input type='text' value={nok_relation} name='nok_relation' onChange={handleChange('nok_relation')} className='form-group__input' placeholder='' />
+                                    <input type='text' value={nextRelationship} name='nextRelationship' onChange={handleChange('nextRelationship')} className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>
                                     <label htmlFor='phone' className='form-group__label'>
                                         Phone Number
                                     </label>
-                                    <input type='number' value={nok_phone} name='phone' onChange={handleChange('nok_phone')} className='form-group__input' placeholder='+224' />
+                                    <input type='number' value={nextPhone} name='nextPhone' onChange={handleChange('nextPhone')} className='form-group__input' placeholder='+224' />
                                 </div>
 
                                 <div className='form-group__element'>
-                                    <label htmlFor='phone' className='form-group__label' value={nok_address}>
+                                    <label htmlFor='nok_address' className='form-group__label'>
                                         Home Address
                                     </label>
                                    <textarea 
                                         className="border border-1 h-[8rem] w-[62%] p-2"
-                                        name="nok_address"
-                                        onChange={handleChange('nok_address')}
+                                        value={nextAddress}
+                                        name="nextAddress"
+                                        onChange={handleChange('nextAddress')}
                                    ></textarea>
                                 </div>
 
