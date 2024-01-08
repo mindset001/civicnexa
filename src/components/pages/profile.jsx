@@ -54,6 +54,7 @@ const ProfilePage = () => {
     }));
   };
   const navigate = useNavigate()
+  console.log('token',localStorage.getItem('userToken'))
 
   useEffect(() => {
     const config = {

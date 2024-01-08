@@ -17,12 +17,13 @@ class Financial extends Component {
     }
 
     render() {
+        // console.log('Financial States:',this.props)
         const {
             handleChange,
-            acct_num,
+            account_number,
             bank_name,
-            acct_name,
-            bvn,
+            account_name,
+            BVN,
             submitData
         } = this.props;
 
@@ -53,28 +54,28 @@ class Financial extends Component {
                                 <label htmlFor='phone' className='form-group__label'>
                                     Account Name
                                 </label>
-                                <input type='text' value={acct_name} name='acct_name' onChange={handleChange('acct_name')} className='form-group__input' placeholder='' />
+                                <input type='text' id='account_name' value={account_name} name='account_name' onChange={handleChange('account_name')} className='form-group__input' placeholder='' />
                             </div>
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
                                    Bank Name
                                 </label>
-                                <input type='text' value={bank_name} name='bank_name' onChange={handleChange('bank_name')}  className='form-group__input' placeholder='' />
+                                <input type='text' id='bank_name' value={bank_name} name='bank_name' onChange={handleChange('bank_name')}  className='form-group__input' placeholder='' />
                             </div>
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
                                     Account Number
                                 </label>
-                                <input type='number' value={acct_num} name='acct_num' onChange={handleChange('acct_num')}  className='form-group__input' placeholder='' />
+                                <input type='number' id='account_number' value={account_number} name='account_number' onChange={handleChange('account_number')}  className='form-group__input' placeholder='' />
                             </div>
 
                             <div className='form-group__element'>
                                 <label htmlFor='phone' className='form-group__label'>
                                     Bank Verification Number (BVN)
                                 </label>
-                                <input type='number' value={bvn} name='bvn' onChange={handleChange('bvn')} className='form-group__input' placeholder='' />
+                                <input type='number' id='BVN' value={BVN} name='BVN' onChange={handleChange('BVN')} className='form-group__input' placeholder='' />
                             </div>
                         </div>
                        

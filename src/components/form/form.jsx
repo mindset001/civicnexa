@@ -25,24 +25,29 @@ class Form extends Component {
     last_name: '',
     othername: '',
     dob: '',
-    address: '',
-    state_of_resident: '',
-    state_of_origin: '',
-    email: '',
-    phone: '',
     nin: '',
-    nok_relation: '',
-    nok_name: '',
-    nok_phone: '',
-    nok_address: '',
+    state_of_origin: '',
+    state_of_resident: '',
+    address: '',
+    phone: '',
+    nextofkin: [{
+      nextRelationship: '',
+      nextName: '',
+      nextPhone: '',
+      nextAddress: '',
+    }],
     rel_relation: '',
     rel_name: '',
     rell_relation: '',
     rell_name: '',
-    acct_num: '',
-    bank_name: '',
-    acct_name: '',
-    bvn: '',
+    bank:[ 
+      {
+        account_number: '',
+        bank_name: '',
+        account_name: '',
+        BVN: '',
+      },
+    ],
     isErrorFirstName: true,
     isErrorLastName: true,
     isErrorOtherName: true,
@@ -125,7 +130,7 @@ class Form extends Component {
 
 
   validateOtherName = () => {
-    if (this.state.last_name.length < 2) {
+    if (this.state.othername.length < 2) {
       this.setState({
         isErrorOtherName: true,
         errorMessageOtherName: 'Type your middle name (at least 2 characters)'
@@ -139,6 +144,7 @@ class Form extends Component {
 
 
   submitData = e => {
+    const token = localStorage.getItem('userToken');
 
   const bodydata =  {
     "first_name": this.state.first_name,
@@ -147,19 +153,28 @@ class Form extends Component {
     "state_of_origin": this.state.state_of_origin,
     "state_of_resident": this.state.state_of_resident,
     "address": this.state.address,
+    "gender": this.state.gender,
+    "occupation": this.state.occupation,
+    "marital_status": this.state.marital_status,
+    "bloodgroup": "O+",
+    "genotype": "AA",
     "phone": this.state.phone,
-    "nok_relation": this.state.nok_relation,
-    "nok_name": this.state.nok_name,
-    "nok_phone": this.state.nok_phone,
-    "nok_address": this.state.nok_address,
-    "rel_relation": this.state.rel_relation,
-    "rel_name": this.state.rel_name,
-    "rell_relation": this.state.rell_relation,
-    "rell_name": this.state.rell_name,
-    "acct_num": this.state.acct_num,
-    "bank_name": this.state.bank_name,
-    "acct_name": this.state.acct_name,
-    "bvn": this.state.bvn,
+    "bank": [
+      {
+        "bank_name": this.state.bank_name,
+        "BVN": this.state.BVN,
+        "account_name": this.state.account_name,
+        "account_number": this.state.account_number,
+      },
+    ],
+    "nextofkin": [
+      {
+        "name": this.state.nextName,
+        "relationship": this.state.nextRelationship,
+        "phone": this.state.nextPhone,
+        "address": this.state.nextAddress,
+      },
+    ]
   }
 
     console.log('body >>>>>>>>>>>>>', bodydata)
@@ -168,8 +183,9 @@ class Form extends Component {
 
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' ,
-      Authorization: `JWT ${localStorage.getItem('userToken')}`,
+      headers: { 
+        'Content-Type': 'application/json' ,
+        Authorization: `JWT ${token}`,
       },
       body: JSON.stringify(bodydata)
   };
@@ -180,11 +196,14 @@ class Form extends Component {
         this.setState({ postId: data.id })
         console.log(data)
         
-        // alert('Data sent');
-        window.location.href='/profile'
+        if(data.status === 201){
+          alert('Data sent');
+          window.location.href='/profile'
+        }
         // this.props.history
        
-      });
+      })
+      .catch(err => console.log(err))
    
     
   }
@@ -200,25 +219,32 @@ class Form extends Component {
       first_name,
       last_name,
       othername,
-      email,
+      dob,
+      nin,
       state_of_origin,
       state_of_resident,
-      dob,
       address,
       phone,
-      nin,
-      nok_relation,
-    nok_name,
-    nok_phone,
-    nok_address,
-    rel_relation,
-    rel_name,
-    rell_relation,
-    rell_name,
-    acct_num,
-    bank_name,
-    acct_name,
-    bvn,
+      nextofkin: [
+        {
+          nextRelationship,
+          nextName,
+          nextPhone,
+          nextAddress,
+        }
+      ],
+      rel_relation,
+      rel_name,
+      rell_relation,
+      rell_name,
+      bank: [
+        {
+          account_number,
+          bank_name,
+          account_name,
+          BVN,
+        },
+      ],
     img,
       isErrorFirstName,
       isErrorLastName,
@@ -244,10 +270,10 @@ class Form extends Component {
             last_name={last_name}
             othername={othername}
             state_of_resident={state_of_resident}
-            email={email}
+            // email={email}
             phone={phone}
             nin={nin}
-            dob={dob}
+            date={dob}
             state_of_origin={state_of_origin}
             address={address}
             validateFirstName={this.validateFirstName}
@@ -272,10 +298,10 @@ class Form extends Component {
           <Relationships 
             handleChange={this.handleChange}
             nextStep={this.nextStep}
-            nok_name={nok_name}
-            nok_phone={nok_phone}
-            nok_address={nok_address}
-            nok_relation={nok_relation}
+            name={nextName}
+            phone={nextPhone}
+            address={nextAddress}
+            relationship={nextRelationship}
             rel_name={rel_name}
             rel_relation={rel_relation}
             rell_name={rell_name}
@@ -289,7 +315,7 @@ class Form extends Component {
             nextStep={this.nextStep}
             // first_name={first_name}
             // last_name={last_name}
-            email={email}
+            // email={email}
             img={img}
           />
         )
@@ -298,10 +324,10 @@ class Form extends Component {
             <Financial
               handleChange={this.handleChange}
               nextStep={this.nextStep}
-              bank_name={bank_name}
-              acct_name={acct_name}
-              acct_num={acct_num}
-              bvn={bvn}
+              name={bank_name}
+              acct_name={account_name}
+              acct_number={account_number}
+              bvn={BVN}
               submitData={this.submitData}
             />
           )

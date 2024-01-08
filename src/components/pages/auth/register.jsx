@@ -20,7 +20,7 @@ const Register = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { loading, success, error, user } = useSelector(state => state.auth)
-  console.log(useSelector(state => state.auth))
+  // console.log(useSelector(state => state.auth))
     const initialValues = {
       username: '',
       email: '',
@@ -28,18 +28,18 @@ const Register = () => {
       re_password: '',
     }
 
-    // useEffect(() => {
-    //   if(success) navigate('/')
-    // },[success, navigate])
+    useEffect(() => {
+      if(success) navigate('/success')
+    },[success, navigate])
     
     const handleSubmit = (values) => {
       values.email = values.email.toLowerCase()
       dispatch(registerUser(values))
       // console.log(values)
       console.log(error)
-      if (success){
-        navigate('/success')
-      }
+      // if (success === true){
+      //   navigate('/success')
+      // }
     }
   
   return(
