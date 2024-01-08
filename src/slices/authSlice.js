@@ -41,7 +41,7 @@ export const registerUser = createAsyncThunk(
       }
       const response = await axios.post(`${api}/auth/users/`, credentials, config);
       const data = response.data
-      // console.log('data>>>>>>>>>>>>>>>',data)
+      console.log('data>>>>>>>>>>>>>>>',data)
       return data
     } catch (error) {
       console.log(error.response.data.username)
