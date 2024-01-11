@@ -16,6 +16,7 @@ const ProfilePage = () => {
   const [data, setData] = useState(null);
   const token = localStorage.getItem('userToken');
   const [select, setSelect] = useState(null);
+  const editable = false;
   
   // const dispatch = useDispatch();
   // const { data, error, isLoading } = useGetProfileQuery('userProfile', { pollingInterval: 90000});
@@ -240,6 +241,7 @@ const ProfilePage = () => {
                                       <input type="text" name='firstname' placeholder="Micheal"
                                         value={data?.first_name}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -249,6 +251,7 @@ const ProfilePage = () => {
                                       <input type="text" name='lastname' placeholder="Doe"
                                         value={data?.last_name}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -258,6 +261,7 @@ const ProfilePage = () => {
                                       <input type="text" name='othername' placeholder="Oka"
                                         value={data?.middle_name}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -267,6 +271,7 @@ const ProfilePage = () => {
                                       <input type="text" name='email' placeholder="Micheal"
                                         value={data?.email}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -276,6 +281,7 @@ const ProfilePage = () => {
                                       <input type="text" name='nin' placeholder="1223444"
                                         value={data?.nin}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -299,6 +305,7 @@ const ProfilePage = () => {
                                       <input type="text" name='occupation' placeholder="trader"
                                         value={data?.occupation}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -308,6 +315,7 @@ const ProfilePage = () => {
                                       <input type="number" name='number' placeholder="Doe"
                                         value={data?.number}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -317,6 +325,7 @@ const ProfilePage = () => {
                                       <input type="text" name='dob' placeholder="20-00-2015"
                                         value={data?.dob}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -341,6 +350,7 @@ const ProfilePage = () => {
                                       <textarea type="text" name='nin' placeholder="1223444"
                                         value={data?.address}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 h-[100px] w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "></textarea>
@@ -367,6 +377,7 @@ const ProfilePage = () => {
                                       <input type="text" name='firstname' placeholder="Micheal"
                                         // value={data?.next_of_kin.name}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -376,6 +387,7 @@ const ProfilePage = () => {
                                       <input type="text" name='lastname' placeholder="Doe"
                                         // value={data?.next_of_kin.relationship}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -385,6 +397,7 @@ const ProfilePage = () => {
                                       <input type="number" name='othername' placeholder="Oka"
                                         // value={data?.next_of_kin.phone}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -394,6 +407,7 @@ const ProfilePage = () => {
                                       <textarea type="text" name='nin' placeholder="1223444"
                                         // value={data?.next_of_kin.address}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 h-[100px] w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "></textarea>
@@ -405,6 +419,7 @@ const ProfilePage = () => {
                                       <input type="text" name='occupation' placeholder="tola"
                                         value={data?.occupation}
                                         onChange={handleFormChange}
+                                        disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
@@ -414,6 +429,7 @@ const ProfilePage = () => {
                                       <Select 
                                         defaultValue={select}
                                         onChange={setSelect}
+                                        disabled
                                         options={options}
                                         className='mt-1 w-full px-3 py-2 bg-white placeholder-slate-400'
                                       />
@@ -434,6 +450,7 @@ const ProfilePage = () => {
                                     <input type="text" placeholder="First Bank" name='bank'
                                       value={data?.bank[0].bank_name}
                                       onChange={handleFormChange}
+                                      disabled
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                     "/>
@@ -443,6 +460,7 @@ const ProfilePage = () => {
                                     <input type="text" placeholder="John Doe" name='account_name'
                                       value={data?.bank[0].account_name} 
                                       onChange={handleFormChange}
+                                      disabled
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                     "/>
@@ -452,6 +470,7 @@ const ProfilePage = () => {
                                     <input type="text" placeholder="**********" name='account_number' 
                                       value={data?.bank[0].account_number}
                                       onChange={handleFormChange}
+                                      disabled
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                     "/>
@@ -461,6 +480,7 @@ const ProfilePage = () => {
                                   <input type="text" placeholder="**********" name='bvn'
                                     value={data?.bank[0].BVN}
                                     onChange={handleFormChange}
+                                    disabled
                                     required className="mt-1 block w-full px-3 py-2 bg-white 
                                     border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                   "/>
@@ -473,6 +493,7 @@ const ProfilePage = () => {
                                     <input type="text" placeholder="Micheal" name='occupation'
                                       value={data?.bloodgroup}
                                       onChange={handleFormChange}
+                                      disabled
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                     "/>
@@ -482,6 +503,7 @@ const ProfilePage = () => {
                                     <input type="file" name='health_image'
                                       value={data?.health_image}
                                       onChange={handleFormChange}
+                                      disabled
                                       required className="mt-1
                                     "/>
                                 </label>
