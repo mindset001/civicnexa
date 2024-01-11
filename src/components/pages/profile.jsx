@@ -77,7 +77,8 @@ const ProfilePage = () => {
           }
 
           else{
-            console.log("response", response.data);
+            // console.log("response", response.data);
+            console.log("response", response.data.bank[0].account_number);
             setLoading(false);
             setData(response.data);
           }
@@ -431,7 +432,7 @@ const ProfilePage = () => {
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                     <span className="text-[1rem] font-normal w-[30%]">Account Name</span>
                                     <input type="text" placeholder="First Bank" name='bank'
-                                      value={data?.bank.bank_name}
+                                      value={data?.bank[0].bank_name}
                                       onChange={handleFormChange}
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -440,7 +441,7 @@ const ProfilePage = () => {
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                     <span className="text-[1rem] font-normal w-[30%]">Bank Name</span>
                                     <input type="text" placeholder="John Doe" name='account_name'
-                                      value={data?.bank.account_name} 
+                                      value={data?.bank[0].account_name} 
                                       onChange={handleFormChange}
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -448,8 +449,8 @@ const ProfilePage = () => {
                                 </label>
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                     <span className="text-[1rem] font-normal w-[30%]">Account Number</span>
-                                    <input type="number" placeholder="**********" name='account_number' 
-                                      value={data?.bank.account_number}
+                                    <input type="text" placeholder="**********" name='account_number' 
+                                      value={data?.bank[0].account_number}
                                       onChange={handleFormChange}
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -457,8 +458,8 @@ const ProfilePage = () => {
                                 </label>
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                   <span className="text-[1rem] font-normal w-[30%]">BVN</span>
-                                  <input type="number" placeholder="**********" name='bvn'
-                                    value={data?.bank.bvn}
+                                  <input type="text" placeholder="**********" name='bvn'
+                                    value={data?.bank[0].BVN}
                                     onChange={handleFormChange}
                                     required className="mt-1 block w-full px-3 py-2 bg-white 
                                     border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -486,7 +487,7 @@ const ProfilePage = () => {
                                 </label>
                               </div>
                             </div>
-                            <div className='flex mt-[2rem] gap-[3.5rem] border-b-[1px] border-[#D5D5D5]'>
+                            {/* <div className='flex mt-[2rem] gap-[3.5rem] border-b-[1px] border-[#D5D5D5]'>
                               <div className='mb-[2rem] flex-1'>
                                 <h3 className='font-medium text-[1.25rem] mb-[2rem]'>Security Information</h3>
                                 <label className="flex flex-col gap-[1rem] mb-[2rem]">
@@ -507,7 +508,7 @@ const ProfilePage = () => {
                                   <Button classNames='text-white font-medium bg-purple rounded-lg px-[2rem]'>Save Changes</Button>
                                 </div>
                               </div>
-                            </div>
+                            </div> */}
                               
                               {/* <div className='my-5 lg:ml-5'>
                                   <span className="block text-sm font-medium text-slate-700">Marital Status</span>
