@@ -79,9 +79,11 @@ const ProfilePage = () => {
 
           else{
             // console.log("response", response.data);
-            console.log("response", response.data.bank[0].account_number);
-            setLoading(false);
-            setData(response.data);
+            if(response.data){
+              console.log("response", response.data);
+              setLoading(false);
+              setData(response.data);
+            }
           }
         }
       ).catch((error) => {
@@ -375,7 +377,7 @@ const ProfilePage = () => {
                                   <label className="flex items-center gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Name</span>
                                       <input type="text" name='firstname' placeholder="Micheal"
-                                        // value={data?.next_of_kin.name}
+                                        value={data?.nextofkin[0].name}
                                         onChange={handleFormChange}
                                         disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
@@ -385,7 +387,7 @@ const ProfilePage = () => {
                                   <label className="flex items-center gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Relationship</span>
                                       <input type="text" name='lastname' placeholder="Doe"
-                                        // value={data?.next_of_kin.relationship}
+                                        value={data?.nextofkin[0].relationship}
                                         onChange={handleFormChange}
                                         disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
@@ -394,8 +396,8 @@ const ProfilePage = () => {
                                   </label>
                                   <label className="flex items-center gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Phone Number</span>
-                                      <input type="number" name='othername' placeholder="Oka"
-                                        // value={data?.next_of_kin.phone}
+                                      <input type="number" name='phone' placeholder="Oka"
+                                        value={data?.nextofkin[0].phone}
                                         onChange={handleFormChange}
                                         disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
@@ -405,7 +407,7 @@ const ProfilePage = () => {
                                   <label className="flex gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Home Address</span>
                                       <textarea type="text" name='nin' placeholder="1223444"
-                                        // value={data?.next_of_kin.address}
+                                        value={data?.nextofkin[0].address}
                                         onChange={handleFormChange}
                                         disabled
                                         required className="mt-1 h-[100px] w-full px-3 py-2 bg-white 

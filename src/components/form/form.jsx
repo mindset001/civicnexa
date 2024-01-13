@@ -1,17 +1,10 @@
-import React, { Component, } from 'react';
-import {Routes, Route, useNavigate} from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { lazy, Component, } from 'react';
 
-// import 
 
-import PersonalDetails from './personalDetails';
-import Health from './summary';
-import Financial from './finance';
-import Relationships from './relations';
-
-//Sample data
-// const navigate = useNavigate();
-
+const PersonalDetails = lazy(() => import("./personalDetails"));
+const Health = lazy(() => import("./summary"));
+const Financial = lazy(() => import("./finance"));
+const Relationships = lazy(() => import("./relations"));
 
 
 
