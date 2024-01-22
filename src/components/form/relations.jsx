@@ -58,7 +58,6 @@ class Relationships extends Component {
                                       Name
                                     </label>
                                     <input type='text' value={nextName} name='nextName' onChange={handleChange('nextName')} className='form-group__input' placeholder='' />
-                                    <input type='text' value={nextName} name='nextName' onChange={handleChange('nextName')} className='form-group__input' placeholder='' />
                                 </div>
 
                                 <div className='form-group__element'>

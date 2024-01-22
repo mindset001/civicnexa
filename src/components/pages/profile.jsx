@@ -17,6 +17,11 @@ const ProfilePage = () => {
   const token = localStorage.getItem('userToken');
   const [select, setSelect] = useState(null);
   const editable = false;
+
+  const signOut = () => {
+    localStorage.removeItem('userToken');
+    window.location.href = '/';
+  }
   
   // const dispatch = useDispatch();
   // const { data, error, isLoading } = useGetProfileQuery('userProfile', { pollingInterval: 90000});
@@ -29,6 +34,7 @@ const ProfilePage = () => {
     email: '',
     state_of_origin: '',
     dob: '',
+    gender: '',
     // health_image: '',
     // security_image: '',
     // next_of_kin: {
@@ -55,7 +61,9 @@ const ProfilePage = () => {
     }));
   };
   const navigate = useNavigate()
-  console.log('token',localStorage.getItem('userToken'))
+  const [selectedGender, setSelectedGender] = useState('');
+  const gendersFromAPI = ['Male', 'Female'];
+  // console.log('token',localStorage.getItem('userToken'))
 
   useEffect(() => {
     const config = {
@@ -70,9 +78,9 @@ const ProfilePage = () => {
     }
     // console.log('token',localStorage.getItem('userToken'))
     try {
-      setLoading(true);
       axios.get(`${api}/profiling/`, config).then(
         (response) => {
+          setLoading(true);
           if (response.data.state_code === undefined) {
             navigate('/stateprofile')
           }
@@ -80,9 +88,10 @@ const ProfilePage = () => {
           else{
             // console.log("response", response.data);
             if(response.data){
-              console.log("response", response.data);
+              // console.log("response", response.data);
               setLoading(false);
               setData(response.data);
+              setSelectedGender(data?.gender)
             }
           }
         }
@@ -96,7 +105,7 @@ const ProfilePage = () => {
       setError('Failed to fetch data');
       setLoading(false);
     }
-  }, [token, api, navigate])
+  }, [token, api, navigate, data])
 
 //    const logout = () => { 
 //       setData(false)
@@ -207,25 +216,32 @@ const ProfilePage = () => {
 
     return (
         <React.Fragment>
-            <main className='2xl:max-w-[1440px] lg:px-[4rem]'>
+            <main className='2xl:max-w-[1440px] lg:px-[4rem] px-4'>
                 <div className='font-DMsans text-black'>
-                    <div className='flex items-center justify-between py-[2rem] border-b-[1px] border-[#D5D5D5]'>
-                      <div>
+                    <div className='lg:flex items-center justify-between py-[2rem] lg:border-b-[1px] border-[#D5D5D5]'>
+                      <div className=''>
                         <h3 className='text-[1.5rem] font-medium leading-4 mb-2'>Welcome {data?.first_name}!</h3>
                         <div>
                           <span className='text-[1.125rem] fonr-normal'>State Code</span> {`  -  `}
-                          <span className='text-[2rem] font-medium'>{data?.state_code}</span>
+                          <span className='text-[1.5rem] lg:text-[2rem] font-medium'>{data?.state_code}</span>
                         </div>
                       </div>
-                      <div className='flex items-center '>
-                      <Link to={`https://civicnexa.onrender.com/payment/requestlogin/${data?.state_code}`}>
-                      <Button classNames='text-white font-medium bg-purple rounded-lg px-[2rem] mr-4'>
-                        Make Payment
-                      </Button></Link>
-                      <button className='text-[#d10000] text-[1rem] font-normal leading-tight flex items-center gap-[.5rem]'>
-                        <span className="material-symbols-outlined">logout</span>
-                        <span className='capitalize' > Sign Out</span>
-                      </button>
+                      <div className='flex items-center'>
+                        <Link to={'#'}>
+                          <Button classNames='text-white font-medium bg-[#df0000] rounded-lg px-[2rem] mr-4'>
+                            Make Emergency call / Text
+                          </Button></Link>
+                        <Link to={`https://civicnexa.onrender.com/payment/requestlogin/${data?.state_code}`}>
+                        <Button classNames='text-white font-medium bg-purple rounded-lg px-[2rem] mr-4'>
+                          Make Payment
+                        </Button></Link>
+                        <button
+                          onClick={signOut} 
+                          className='text-[#d10000] text-[1rem] font-normal leading-tight flex items-center gap-[.5rem]'
+                        >
+                          <span className="material-symbols-outlined">logout</span>
+                          <span className='capitalize'> Sign Out</span>
+                        </button>
                       </div>
                     </div>
                     <div className=''>
@@ -236,10 +252,10 @@ const ProfilePage = () => {
                               {/* PERSONAL INFORMATIONS */}
 
                               <h3 className='font-medium text-[1.25rem] mb-[2rem]'>Personal Information</h3>
-                              <div className='mt-[1.5rem] flex items-center gap-[3.5rem]'>
+                              <div className='mt-[1.5rem] lg:flex items-center gap-[3.5rem]'>
                                 <div className='flex-1'>
                                   <label className="flex items-center gap-[1rem] mb-[2rem]">
-                                      <span className="text-[1rem] font-normal w-[30%]">First Name</span>
+                                      <span className="text-[1rem] font-normal block w-[30%]">First Name</span>
                                       <input type="text" name='firstname' placeholder="Micheal"
                                         value={data?.first_name}
                                         onChange={handleFormChange}
@@ -278,7 +294,7 @@ const ProfilePage = () => {
                                         border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                       "/>
                                   </label>
-                                  <label className="flex items-center gap-[1rem] mb-[2rem]">
+                                  <label className="flex items-center gap-[1rem] mb-[2rem] hidden">
                                       <span className="text-[1rem] font-normal w-[30%]">NIN</span>
                                       <input type="text" name='nin' placeholder="1223444"
                                         value={data?.nin}
@@ -290,14 +306,18 @@ const ProfilePage = () => {
                                   </label>
                                   <div className='flex items-center gap-[1rem] mb-[2rem]'>
                                     <span className="text-[1rem] font-normal w-[22%]">Gender</span>
-                                    <label  className=''>
-                                        <span className='text-sm  mx-[7px] font-medium text-slate-700'>Male</span>
-                                        <input type='radio' />
-                                    </label>
-                                    <label className=''>
-                                        <span className='text-sm mx-[7px]  font-medium text-slate-700'>Female</span>
-                                        <input type='radio' />
-                                    </label>
+                                    {gendersFromAPI.map((gender, index) => (
+                                      <label key={index} className=''>
+                                        <span className='text-sm mx-[7px] font-medium text-slate-700'>{gender}</span>
+                                        <input
+                                          type='radio'
+                                          name='gender'
+                                          value={gender}
+                                          checked={selectedGender === gender}
+                                          onChange={() => setSelectedGender(gender)}
+                                        />
+                                      </label>
+                                    ))}
                                   </div>
                               </div>
                                 
@@ -315,7 +335,7 @@ const ProfilePage = () => {
                                   <label className="flex items-center gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Phone Number</span>
                                       <input type="number" name='number' placeholder="Doe"
-                                        value={data?.number}
+                                        value={data?.phone} 
                                         onChange={handleFormChange}
                                         disabled
                                         required className="mt-1 w-full px-3 py-2 bg-white 
@@ -370,9 +390,9 @@ const ProfilePage = () => {
 
                               <div className='flex items-center justify-between'>
                                 <h3 className='font-medium text-[1.25rem]'>Next of Kin Details</h3>
-                                <h3 className='font-medium text-[1.25rem] absolute right-[470px]'>Relative Details</h3>
+                                {/* <h3 className='font-medium text-[1.25rem] absolute right-[470px]'>Relative Details</h3> */}
                               </div>
-                              <div className='mt-[1.5rem] flex gap-[3.5rem]'>
+                              <div className='mt-[1.5rem] lg:flex gap-[3.5rem] lg:w-[50%]'>
                                 <div className='flex-1'>
                                   <label className="flex items-center gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Name</span>
@@ -415,7 +435,7 @@ const ProfilePage = () => {
                                       "></textarea>
                                   </label>
                               </div> 
-                                <div className='flex-1'>
+                                <div className='flex-1 hidden'>
                                   <label className="flex items-center gap-[1rem] mb-[2rem]">
                                       <span className="text-[1rem] font-normal w-[30%]">Name</span>
                                       <input type="text" name='occupation' placeholder="tola"
@@ -444,13 +464,13 @@ const ProfilePage = () => {
 
                             {/* BANK AND HEALTH INFORMATIONS */}
 
-                            <div className='flex mt-[2rem] gap-[3.5rem] border-b-[1px] border-[#D5D5D5]'>
+                            <div className='lg:flex mt-[2rem] gap-[3.5rem] border-b-[1px] border-[#D5D5D5]'>
                               <div className='flex-1'>
                                 <h3 className='font-medium text-[1.25rem] mb-[2rem]'>Bank Informations</h3>
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                     <span className="text-[1rem] font-normal w-[30%]">Account Name</span>
                                     <input type="text" placeholder="First Bank" name='bank'
-                                      value={data?.bank[0].bank_name}
+                                      value={data?.bank[0].account_name}
                                       onChange={handleFormChange}
                                       disabled
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
@@ -460,7 +480,7 @@ const ProfilePage = () => {
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
                                     <span className="text-[1rem] font-normal w-[30%]">Bank Name</span>
                                     <input type="text" placeholder="John Doe" name='account_name'
-                                      value={data?.bank[0].account_name} 
+                                      value={data?.bank[0].bank_name} 
                                       onChange={handleFormChange}
                                       disabled
                                       required className="mt-1 block w-full px-3 py-2 bg-white 
@@ -477,7 +497,7 @@ const ProfilePage = () => {
                                       border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                     "/>
                                 </label>
-                                <label className="flex items-center gap-[1rem] mb-[2rem]">
+                                <label className="flex items-center gap-[1rem] mb-[2rem] hidden">
                                   <span className="text-[1rem] font-normal w-[30%]">BVN</span>
                                   <input type="text" placeholder="**********" name='bvn'
                                     value={data?.bank[0].BVN}
@@ -501,6 +521,16 @@ const ProfilePage = () => {
                                     "/>
                                 </label>
                                 <label className="flex items-center gap-[1rem] mb-[2rem]">
+                                    <span className="block text-sm font-medium text-slate-700">Genotype</span>
+                                    <input type="text" placeholder="" name='genotype'
+                                      value={data?.genotype}
+                                      onChange={handleFormChange}
+                                      disabled
+                                      required className="mt-1 block w-full px-3 py-2 bg-white 
+                                      border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                                    "/>
+                                </label>
+                                <label className="flex items-center gap-[1rem] mb-[2rem] hidden">
                                     <span className="block text-sm font-medium text-slate-700">Health Image</span>
                                     <input type="file" name='health_image'
                                       value={data?.health_image}

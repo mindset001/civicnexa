@@ -76,11 +76,19 @@ class Health extends Component {
                 <select
                   name='blood_group'
                   id=''
+                  value={blood_group}
                   className='form-group__input w-[100%]'
                   required
-                  onChange={this.handleBloodGroupChange}>
-                  <option value=''>--Select Blood Group--</option>
-                  {/* Add other options based on your requirements */}
+                  onChange={handleChange('blood_group')}>
+                  <option value="">--Select State--</option>
+                  <option>A+</option>
+                  <option>A-</option>
+                  <option>O+</option>
+                  <option>O-</option>
+                  <option>B+</option>
+                  <option>B-</option>
+                  <option>AB+</option>
+                  <option>AB-</option>
                 </select>
               </div>
 
