@@ -21,6 +21,11 @@ class PersonalDetails extends Component {
     }
   }
 
+  handleChange = (field) => (event) => {
+    const value = event.target.type === 'radio' ? event.target.value : event.target.value;
+    console.log('value: ', value);
+    this.props.handleChange(field, value);
+  };
 
 
   render() {
@@ -33,6 +38,7 @@ class PersonalDetails extends Component {
       occupation,
       address,
       dob,
+      gender,
       state_of_origin,
       state_of_resident,
       handleChange,
@@ -123,17 +129,40 @@ class PersonalDetails extends Component {
               <input type='date' value={dob} name='dob' onChange={handleChange('dob')} className='form-group__input' placeholder='' />
             </div>
 
-            <div className="flex justify-between w-[50%] mt-4">
+            {/* <div className="flex justify-between w-[50%] mt-4">
               <label htmlFor="gender" name='gender'>
                 Gender
               </label>
               <div>
-                <input type="radio" name="gender" /> Male
+                <input 
+                  type="radio" 
+                  name="gender" 
+                  value="male"
+                  // checked={gender === 'male'}
+                  onChange={this.handleChange('male')}
+                /> Male
               </div>
               <div>
-                <input type="radio" name="gender" /> Female
+                <input 
+                  type="radio" 
+                  name="gender" 
+                  value="female"
+                  // checked={gender === 'female'}
+                  onChange={this.handleChange('female')}
+                /> Female
               </div>
-            </div>
+            </div> */}
+            <select
+              name='gender'
+              id=''
+              value={gender}
+              className='form-group__input w-[100%]'
+              required
+              onChange={handleChange('gender')}>
+              <option value="">--Select State--</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
 
             <div className="flex justify-between w-[60%] my-4">
               <label htmlFor="" name='marital'>

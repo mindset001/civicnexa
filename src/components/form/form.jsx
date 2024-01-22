@@ -23,6 +23,9 @@ class Form extends Component {
     state_of_resident: '',
     address: '',
     phone: '',
+    gender: '',
+    genotype: '',
+    blood_group: '',
     nextofkin: [{
       nextRelationship: '',
       nextName: '',
@@ -149,7 +152,7 @@ class Form extends Component {
     "gender": this.state.gender,
     "occupation": this.state.occupation,
     "marital_status": this.state.marital_status,
-    "bloodgroup": "O+",
+    "bloodgroup": this.state.blood_group,
     "genotype": "AA",
     "phone": this.state.phone,
     "bank": [
@@ -189,10 +192,7 @@ class Form extends Component {
         this.setState({ postId: data.id })
         console.log(data)
         
-        if(data.status === 201){
-          alert('Data sent');
           window.location.href='/profile'
-        }
         // this.props.history
        
       })
@@ -218,6 +218,9 @@ class Form extends Component {
       state_of_resident,
       address,
       phone,
+      gender,
+      blood_group,
+      genotype,
       nextofkin: [
         {
           nextRelationship,
@@ -263,6 +266,7 @@ class Form extends Component {
             last_name={last_name}
             othername={othername}
             state_of_resident={state_of_resident}
+            gender={gender}
             // email={email}
             phone={phone}
             nin={nin}
@@ -306,9 +310,8 @@ class Form extends Component {
           <Health 
             handleChange={this.handleChange}
             nextStep={this.nextStep}
-            // first_name={first_name}
-            // last_name={last_name}
-            // email={email}
+            blood_group={blood_group}
+            genotype={genotype}
             img={img}
           />
         )
